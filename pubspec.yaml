@@ -1,0 +1,86 @@
+name: fooddelivery
+description: Food Delivery Flutter App
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 2.0.2+29
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  firebase_crashlytics: 2.0.6
+  firebase_messaging: 10.0.2
+  firebase_auth: 1.1.2
+  firebase_core: 1.3.0
+  share: 2.0.4
+  flutterwave: 0.0.3-dev.4    # https://pub.dev/packages/flutterwave
+  mercadopago_sdk: 1.3.0
+  mercado_pago_mobile_checkout: 0.1.0
+  flutter_polyline_points: ^0.2.3
+  the_apple_sign_in: 1.1.1
+  flutter_html: 2.1.0
+  image: 3.0.2
+  shared_preferences: 2.0.6
+  google_sign_in: 5.0.4
+  flutter_facebook_login: ^3.0.0
+  # yandex_kassa: ^1.0.2
+  flutter_credit_card: ^0.1.3
+  flutter_paystack: 1.0.5+1
+  http_auth: ^0.3.0
+  google_maps_webservice: ^0.0.20-nullsafety.2
+  permission_handler: ^3.0.0
+  geolocator: ^5.3.2+2
+  flutter_stripe: 1.0.2
+  razorpay_flutter: 1.2.1
+  cached_network_image: ^2.3.1
+  url_launcher: 6.0.6
+  image_picker: ^0.8.0+3
+  google_maps_flutter: 2.0.6
+  flutter:
+    sdk: flutter
+#  fvm: ^2.0.5
+
+dev_dependencies:
+#  flutter_test:
+#    sdk: flutter
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  assets:
+    - assets/
+    - assets/fonts/
+
+  fonts:
+    - family: Raleway
+      fonts:
+        - asset: assets/fonts/Raleway-Bold.ttf
+          weight: 800
+        - asset: assets/fonts/Raleway-Light.ttf
