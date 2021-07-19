@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Food Delivery</string>
+    <string name="app_name">Smartshopp</string>
 
     <!-- Replace "000000000000" with your Facebook App ID here. -->
     <string name="facebook_app_id">369875694000650</string>
@@ -12,4 +12,12 @@
     <string name="fb_login_protocol_scheme">fb369875694000650</string>
 
     <integer name="com_vk_sdk_AppId">7567668</integer>
+
+   <!-- Client ID
+    182301348030-1059o5cogp3sfvf87sl1elo6mfp58gtk.apps.googleusercontent.com
+    Client Secret
+
+    fP7USVwVZnmkZd6wmI0dhr3e
+-->
+    182301348030-4u1l40dqkejuj7hosva81em3ffko9jsa.apps.googleusercontent.com
 </resources>

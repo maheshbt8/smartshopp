@@ -3,7 +3,14 @@ buildscript {
     repositories {
         google()
         jcenter()
+        google()
+
+        // If you're using a version of Gradle lower than 4.1, you must instead use:
+         maven {
+             url 'https://maven.google.com'
+         }
     }
+
 
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.0'
@@ -12,6 +19,7 @@ buildscript {
         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.5.2'
     }
 }
+
 
 allprojects {
     repositories {

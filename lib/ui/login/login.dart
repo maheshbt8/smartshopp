@@ -19,6 +19,7 @@ import 'package:fooddelivery/widget/iinputField2PasswordA.dart';
 import 'package:fooddelivery/widget/iinputField2a.dart';
 import 'package:fooddelivery/widget/skinRoute.dart';
 import 'package:the_apple_sign_in/the_apple_sign_in.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'otp.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -34,9 +35,6 @@ class _LoginScreenState extends State<LoginScreen>
   AppleLogin appleLogin = AppleLogin();
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////
-  //
-  //
-  //
 
   _pressLoginButton(){
     print("User pressed \"LOGIN\" button");
@@ -76,7 +74,6 @@ class _LoginScreenState extends State<LoginScreen>
     print("User press \"Forgot password\" button");
     route.push(context, "/forgot");
   }
-  //
   //////////////////////////////////////////////////////////////////////////////////////////////////////
   var windowWidth;
   var windowHeight;
