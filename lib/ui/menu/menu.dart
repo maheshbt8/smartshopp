@@ -1,11 +1,11 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/homescreenModel.dart';
-import 'package:fooddelivery/ui/main/home/home.dart';
-import 'package:fooddelivery/widget/iline.dart';
-import 'package:fooddelivery/widget/skinRoute.dart';
 import 'package:share/share.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/homescreenModel.dart';
+import 'package:shopping/ui/main/home/home.dart';
+import 'package:shopping/widget/iline.dart';
+import 'package:shopping/widget/skinRoute.dart';
 
 import 'city.dart';
 

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/ui/login/needAuth.dart';
-import 'package:fooddelivery/widget/iAvatarWithPhotoFileCaching.dart';
-import 'package:fooddelivery/widget/ibutton3.dart';
-import 'package:fooddelivery/widget/ibutton5.dart';
-import 'package:fooddelivery/widget/ilist4.dart';
-import 'package:fooddelivery/widget/skinRoute.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/ui/login/needAuth.dart';
+import 'package:shopping/widget/iAvatarWithPhotoFileCaching.dart';
+import 'package:shopping/widget/ibutton3.dart';
+import 'package:shopping/widget/ibutton5.dart';
+import 'package:shopping/widget/ilist4.dart';
+import 'package:shopping/widget/skinRoute.dart';
 
 class AccountScreen extends StatefulWidget {
   final Function(String) onDialogOpen;

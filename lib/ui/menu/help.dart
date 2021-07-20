@@ -1,10 +1,11 @@
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/dprint.dart';
-import 'package:fooddelivery/model/server/faq.dart';
-import 'package:fooddelivery/widget/ibackground4.dart';
-import 'package:fooddelivery/widget/icard7.dart';
+
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/widget/skinRoute.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/dprint.dart';
+import 'package:shopping/model/server/faq.dart';
+import 'package:shopping/widget/ibackground4.dart';
+import 'package:shopping/widget/icard7.dart';
+import 'package:shopping/widget/skinRoute.dart';
 
 class HelpScreen extends StatefulWidget {
   final Function(String) onBack;

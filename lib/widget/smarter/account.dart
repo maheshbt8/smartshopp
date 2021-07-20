@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
+import 'package:shopping/main.dart';
 
 sAccountHeader1(List<Widget> list, double windowWidth, BuildContext context){
   list.add(Container(

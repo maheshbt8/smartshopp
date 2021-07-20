@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/homescreenModel.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/homescreenModel.dart';
 
 class WidgetDetails extends StatefulWidget {
   final double width;

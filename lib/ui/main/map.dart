@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/dprint.dart';
-import 'package:fooddelivery/model/homescreenModel.dart';
-import 'package:fooddelivery/model/pref.dart';
-import 'package:fooddelivery/model/server/mainwindowdata.dart';
-import 'package:fooddelivery/model/topRestourants.dart';
-import 'package:fooddelivery/model/utils.dart';
-import 'package:fooddelivery/ui/main/home/home.dart';
-import 'package:fooddelivery/widget/basic/restaurants.dart';
-import 'package:fooddelivery/widget/skinRoute.dart';
-import 'package:fooddelivery/widget/wmap.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:shopping/main.dart';
+import 'package:shopping/model/dprint.dart';
+import 'package:shopping/model/homescreenModel.dart';
+import 'package:shopping/model/pref.dart';
+import 'package:shopping/model/server/mainwindowdata.dart';
+import 'package:shopping/model/topRestourants.dart';
+import 'package:shopping/model/utils.dart';
+import 'package:shopping/ui/main/home/home.dart';
+import 'package:shopping/widget/basic/restaurants.dart';
+import 'package:shopping/widget/skinRoute.dart';
+import 'package:shopping/widget/wmap.dart';
 
 class MapScreen extends StatefulWidget {
   final Function(String) callback;

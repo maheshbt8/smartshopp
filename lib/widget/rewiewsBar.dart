@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/model/server/getRestaurant.dart';
-import 'package:fooddelivery/model/server/mainwindowdata.dart';
+import 'package:shopping/model/server/getRestaurant.dart';
+import 'package:shopping/model/server/mainwindowdata.dart';
 import '../main.dart';
 import 'ReviewsText.dart';
 import 'ilist1.dart';

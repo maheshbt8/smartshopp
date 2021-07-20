@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/homescreenModel.dart';
-import 'package:fooddelivery/model/categories.dart';
-import 'package:fooddelivery/model/topRestourants.dart';
-import 'package:fooddelivery/widget/basic/restaurants.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/categories.dart';
+import 'package:shopping/model/homescreenModel.dart';
+import 'package:shopping/model/topRestourants.dart';
+import 'package:shopping/widget/basic/restaurants.dart';
 import 'isearch.dart';
 
 bool _filterWindow = false;

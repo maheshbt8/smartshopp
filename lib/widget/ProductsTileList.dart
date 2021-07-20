@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/model/homescreenModel.dart';
-import 'package:fooddelivery/widget/widgets.dart';
+import 'package:shopping/model/homescreenModel.dart';
+import 'package:shopping/widget/widgets.dart';
 import '../main.dart';
 import 'cacheImageWidget.dart';
 

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/dprint.dart';
-import 'package:fooddelivery/model/server/mainwindowdata.dart';
-import 'package:fooddelivery/ui/main/mainscreen.dart';
-import 'package:fooddelivery/widget/iinkwell.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/dprint.dart';
+import 'package:shopping/model/server/mainwindowdata.dart';
+import 'package:shopping/ui/main/mainscreen.dart';
+import 'package:shopping/widget/iinkwell.dart';
 import 'ibutton3.dart';
 
 buttonAddToCart(DishesData item, Function redraw, Function onCancel, var _scaffoldKey){

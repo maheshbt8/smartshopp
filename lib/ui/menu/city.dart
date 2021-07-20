@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/pref.dart';
-import 'package:fooddelivery/ui/main/home/home.dart';
-import 'package:fooddelivery/widget/easyDialog2.dart';
-import 'package:fooddelivery/widget/ibutton3.dart';
-import 'package:fooddelivery/widget/skinRoute.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/pref.dart';
+import 'package:shopping/ui/main/home/home.dart';
+import 'package:shopping/widget/easyDialog2.dart';
+import 'package:shopping/widget/ibutton3.dart';
+import 'package:shopping/widget/skinRoute.dart';
 
 class SelectCityScreen extends StatefulWidget {
   // final Function redraw;

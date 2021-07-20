@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/geolocator.dart';
-import 'package:fooddelivery/model/homescreenModel.dart';
-import 'package:fooddelivery/widget/basic/isearch.dart';
-import 'package:fooddelivery/widget/iboxCircle.dart';
-
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:google_maps_webservice/places.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/geolocator.dart';
+import 'package:shopping/model/homescreenModel.dart';
+import 'package:shopping/widget/basic/isearch.dart';
+import 'package:shopping/widget/iboxCircle.dart';
 
 class MapInfoScreen extends StatefulWidget {
   final Function(double, double, String) callback;

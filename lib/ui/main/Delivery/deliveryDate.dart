@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/dprint.dart';
-import 'package:fooddelivery/widget/ibutton3.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/dprint.dart';
+import 'package:shopping/widget/ibutton3.dart';
 
 import 'widgets.dart';
 

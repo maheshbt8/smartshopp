@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/widget/ibutton3.dart';
-import 'package:fooddelivery/widget/ibuttonCount.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/widget/ibutton3.dart';
+import 'package:shopping/widget/ibuttonCount.dart';
 
 bSkinProductDetailsAddToCartButtons(double windowWidth, String price, Function() _tapAddToCart, Function(int count) _onPress) {
   return Align(

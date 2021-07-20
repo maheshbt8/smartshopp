@@ -1,9 +1,9 @@
 import 'package:flutter_html/flutter_html.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/server/doc.dart';
-import 'package:fooddelivery/widget/ibackground4.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/widget/skinRoute.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/server/doc.dart';
+import 'package:shopping/widget/ibackground4.dart';
+import 'package:shopping/widget/skinRoute.dart';
 
 class DocumentsScreen extends StatefulWidget {
   final String doc;

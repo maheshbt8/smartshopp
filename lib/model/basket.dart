@@ -1,11 +1,12 @@
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/server/addToBasket.dart';
-import 'package:fooddelivery/model/server/basketReset.dart';
-import 'package:fooddelivery/model/server/deleteFromBasket.dart';
-import 'package:fooddelivery/model/server/getBasket.dart';
-import 'package:fooddelivery/model/server/mainwindowdata.dart';
-import 'package:fooddelivery/model/server/setCountinBasket.dart';
-import 'package:fooddelivery/model/topRestourants.dart';
+
+import 'package:shopping/main.dart';
+import 'package:shopping/model/server/addToBasket.dart';
+import 'package:shopping/model/server/basketReset.dart';
+import 'package:shopping/model/server/deleteFromBasket.dart';
+import 'package:shopping/model/server/getBasket.dart';
+import 'package:shopping/model/server/mainwindowdata.dart';
+import 'package:shopping/model/server/setCountinBasket.dart';
+import 'package:shopping/model/topRestourants.dart';
 import 'dprint.dart';
 import 'homescreenModel.dart';
 

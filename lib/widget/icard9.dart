@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/widget/ibox.dart';
+import 'package:shopping/widget/ibox.dart';
 
 class ICard9 extends StatefulWidget {
   final Color color;

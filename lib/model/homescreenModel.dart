@@ -1,14 +1,15 @@
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/categories.dart';
-import 'package:fooddelivery/model/dprint.dart';
-import 'package:fooddelivery/model/geolocator.dart';
-import 'package:fooddelivery/model/foods.dart';
-import 'package:fooddelivery/model/pref.dart';
-import 'package:fooddelivery/model/review.dart';
-import 'package:fooddelivery/model/server/secondstep.dart';
-import 'package:fooddelivery/model/topRestourants.dart';
-import 'package:fooddelivery/model/server/mainwindowdata.dart';
-import 'package:fooddelivery/ui/main/mainscreen.dart';
+
+import 'package:shopping/main.dart';
+import 'package:shopping/model/categories.dart';
+import 'package:shopping/model/dprint.dart';
+import 'package:shopping/model/foods.dart';
+import 'package:shopping/model/geolocator.dart';
+import 'package:shopping/model/pref.dart';
+import 'package:shopping/model/review.dart';
+import 'package:shopping/model/server/mainwindowdata.dart';
+import 'package:shopping/model/server/secondstep.dart';
+import 'package:shopping/model/topRestourants.dart';
+import 'package:shopping/ui/main/mainscreen.dart';
 
 AppSettings appSettings = AppSettings();
 

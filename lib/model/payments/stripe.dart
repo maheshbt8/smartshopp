@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/model/dprint.dart';
-import 'package:fooddelivery/ui/main/home/home.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:shopping/model/dprint.dart';
+import 'package:shopping/ui/main/home/home.dart';
 
 class StripeModel{
 

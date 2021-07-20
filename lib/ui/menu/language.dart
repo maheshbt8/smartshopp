@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/pref.dart';
-import 'package:fooddelivery/widget/skinRoute.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/pref.dart';
+import 'package:shopping/widget/skinRoute.dart';
 
 class LanguageScreen extends StatefulWidget {
   final Function redraw;

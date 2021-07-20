@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/widget/iboxCircle.dart';
+import 'package:shopping/widget/iboxCircle.dart';
 
 class IBottomBar extends StatefulWidget {
   final Function(int) callback;

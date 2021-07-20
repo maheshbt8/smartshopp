@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
+import 'package:shopping/main.dart';
 
 class IBottomBar2Smart extends StatefulWidget {
   final Function(int) callback;

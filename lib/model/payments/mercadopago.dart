@@ -1,6 +1,6 @@
-import 'package:fooddelivery/ui/main/home/home.dart';
 import 'package:mercado_pago_mobile_checkout/mercado_pago_mobile_checkout.dart';
 import 'package:mercadopago_sdk/mercadopago_sdk.dart';
+import 'package:shopping/ui/main/home/home.dart';
 
 /*
 

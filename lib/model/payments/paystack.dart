@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_paystack/flutter_paystack.dart';
-import 'package:fooddelivery/ui/main/home/home.dart';
+import 'package:shopping/ui/main/home/home.dart';
 
 class PayStackModel{
 

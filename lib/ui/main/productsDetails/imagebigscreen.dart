@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/ui/main/productsDetails/pagin1.dart';
-import 'package:fooddelivery/widget/appbar1.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/ui/main/productsDetails/pagin1.dart';
+import 'package:shopping/widget/appbar1.dart';
 
 class ImagesBigScreen extends StatefulWidget {
   final List<Widget> list;

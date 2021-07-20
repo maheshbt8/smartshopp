@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/ui/login/createaccount.dart';
-import 'package:fooddelivery/ui/login/forgot.dart';
-import 'package:fooddelivery/ui/login/login.dart';
-import 'package:fooddelivery/ui/main/Delivery/delivery.dart';
-import 'package:fooddelivery/ui/main/basket.dart';
-import 'package:fooddelivery/ui/main/categoryDetails.dart';
-import 'package:fooddelivery/ui/main/mainscreen.dart';
-import 'package:fooddelivery/ui/main/productsDetails/dishesDetails.dart';
-import 'package:fooddelivery/ui/main/restaurantDetails.dart';
+import 'package:shopping/ui/login/createaccount.dart';
+import 'package:shopping/ui/login/forgot.dart';
+import 'package:shopping/ui/login/login.dart';
+import 'package:shopping/ui/main/Delivery/delivery.dart';
+import 'package:shopping/ui/main/basket.dart';
+import 'package:shopping/ui/main/categoryDetails.dart';
+import 'package:shopping/ui/main/mainscreen.dart';
+import 'package:shopping/ui/main/productsDetails/dishesDetails.dart';
+import 'package:shopping/ui/main/restaurantDetails.dart';
 
 class AppFoodRoute{
 

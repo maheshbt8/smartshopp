@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/widget/ilabel2.dart';
+import 'package:shopping/widget/ilabel2.dart';
 
 class ICard11 extends StatefulWidget {
   final Color color;

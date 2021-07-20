@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterwave/core/flutterwave.dart';
 import 'package:flutterwave/models/responses/charge_response.dart';
-import 'package:fooddelivery/ui/main/home/home.dart';
+import 'package:shopping/ui/main/home/home.dart';
 
 /*
   static const String NGN = "NGN";

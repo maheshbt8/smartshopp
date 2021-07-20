@@ -1,6 +1,6 @@
-import 'package:fooddelivery/model/dprint.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:shopping/model/dprint.dart';
 
 //
 // v2.0 - 29/09/2020

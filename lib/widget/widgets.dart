@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/model/homescreenModel.dart';
+import 'package:shopping/model/homescreenModel.dart';
 import '../main.dart';
 
 saleSticker(double width, String discount, String discountprice, String price){

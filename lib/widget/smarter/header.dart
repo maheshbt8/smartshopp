@@ -1,9 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/pref.dart';
-import 'package:fooddelivery/ui/main/mainscreen.dart';
-import 'package:fooddelivery/widget/basic/search.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/pref.dart';
+import 'package:shopping/ui/main/mainscreen.dart';
+import 'package:shopping/widget/basic/search.dart';
+
 
 sHeaderMenuWidget(var context, Function(String) callback, Color _color, String title){
   return _headerWidget2(context, callback, _color, title, _buttonMenu(callback, _color));

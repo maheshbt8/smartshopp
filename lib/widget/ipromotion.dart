@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/model/server/mainwindowdata.dart';
+import 'package:shopping/model/server/mainwindowdata.dart';
 
 // v2.0 18.10.2020
 

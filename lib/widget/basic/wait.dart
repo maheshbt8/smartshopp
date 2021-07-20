@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/widget/colorloader2.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/widget/colorloader2.dart';
 
 bSkinWait(BuildContext context, bool all){
   var windowWidth = MediaQuery.of(context).size.width;

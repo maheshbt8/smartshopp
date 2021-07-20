@@ -1,7 +1,7 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
+import 'package:shopping/main.dart';
 
 sMenuItem(int id, String name, IconData iconData, BuildContext context, Function(int) _onMenuClickItem){
   return Stack(

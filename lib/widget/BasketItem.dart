@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/model/homescreenModel.dart';
-import 'package:fooddelivery/widget/cacheImageWidget.dart';
+import 'package:shopping/model/homescreenModel.dart';
+import 'package:shopping/widget/cacheImageWidget.dart';
 
 import '../main.dart';
 

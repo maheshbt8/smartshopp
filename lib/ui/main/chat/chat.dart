@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/server/chatGet.dart';
-import 'package:fooddelivery/model/server/chatSend.dart';
-import 'package:fooddelivery/ui/login/needAuth.dart';
-import 'package:fooddelivery/widget/ICard31FileCaching.dart';
-import 'package:fooddelivery/widget/InputFieldArea3.dart';
-import 'package:fooddelivery/widget/easyDialog2.dart';
-import 'package:fooddelivery/widget/ibackground4.dart';
-import 'package:fooddelivery/widget/ibutton3.dart';
-import 'package:fooddelivery/widget/skinRoute.dart';
+
 import 'package:intl/intl.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/server/chatGet.dart';
+import 'package:shopping/model/server/chatSend.dart';
+import 'package:shopping/ui/login/needAuth.dart';
+import 'package:shopping/widget/ICard31FileCaching.dart';
+import 'package:shopping/widget/InputFieldArea3.dart';
+import 'package:shopping/widget/easyDialog2.dart';
+import 'package:shopping/widget/ibackground4.dart';
+import 'package:shopping/widget/ibutton3.dart';
+import 'package:shopping/widget/skinRoute.dart';
 
 class ChatScreen extends StatefulWidget {
   final Function(String) onBack;

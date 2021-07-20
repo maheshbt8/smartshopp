@@ -1,8 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/model/homescreenModel.dart';
-import 'package:fooddelivery/widget/ilabelWithIcon.dart';
-import 'package:fooddelivery/widget/iline.dart';
+
+import 'package:shopping/model/homescreenModel.dart';
+import 'package:shopping/widget/ilabelWithIcon.dart';
+import 'package:shopping/widget/iline.dart';
 
 import '../main.dart';
 

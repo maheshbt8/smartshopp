@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/widget/ibackground4.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/widget/ibackground4.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

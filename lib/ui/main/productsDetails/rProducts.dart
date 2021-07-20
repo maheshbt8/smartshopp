@@ -1,6 +1,7 @@
-import 'package:fooddelivery/model/foods.dart';
-import 'package:fooddelivery/model/server/loadProducts.dart';
-import 'package:fooddelivery/model/server/mainwindowdata.dart';
+
+import 'package:shopping/model/foods.dart';
+import 'package:shopping/model/server/loadProducts.dart';
+import 'package:shopping/model/server/mainwindowdata.dart';
 
 rProductsLoad(DishesData _this, Function redraw){
   List<String> need = [];

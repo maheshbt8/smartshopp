@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/homescreenModel.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/homescreenModel.dart';
 
 sOrderCard(String id, Function(String id, String hero) callback,
   double width, double height, String image,

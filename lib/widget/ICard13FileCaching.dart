@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/widget/istars.dart';
+import 'package:shopping/widget/istars.dart';
 
 class ICard13FileCaching extends StatefulWidget {
   final Color color;

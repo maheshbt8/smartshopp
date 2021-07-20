@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/model/server/mainwindowdata.dart';
-import 'package:fooddelivery/widget/ilist1.dart';
+import 'package:shopping/model/server/mainwindowdata.dart';
+import 'package:shopping/widget/ilist1.dart';
 
 import '../../../main.dart';
 import '../mainscreen.dart';

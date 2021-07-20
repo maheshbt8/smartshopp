@@ -1,16 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/dprint.dart';
-import 'package:fooddelivery/model/server/changeProfile.dart';
-import 'package:fooddelivery/model/server/register.dart';
-import 'package:fooddelivery/widget/easyDialog2.dart';
-import 'package:fooddelivery/widget/iVerifySMS.dart';
-import 'package:fooddelivery/widget/iappBar.dart';
-import 'package:fooddelivery/widget/ibackground4.dart';
-import 'package:fooddelivery/widget/ibutton3.dart';
-import 'package:fooddelivery/widget/iinputField2a.dart';
-import 'package:fooddelivery/widget/skinRoute.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/dprint.dart';
+import 'package:shopping/model/server/changeProfile.dart';
+import 'package:shopping/model/server/register.dart';
+import 'package:shopping/widget/easyDialog2.dart';
+import 'package:shopping/widget/iVerifySMS.dart';
+import 'package:shopping/widget/iappBar.dart';
+import 'package:shopping/widget/ibackground4.dart';
+import 'package:shopping/widget/ibutton3.dart';
+import 'package:shopping/widget/iinputField2a.dart';
+import 'package:shopping/widget/skinRoute.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 

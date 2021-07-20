@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/homescreenModel.dart';
-import 'package:fooddelivery/widget/widgets.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/homescreenModel.dart';
+import 'package:shopping/widget/widgets.dart';
 import 'cacheImageWidget.dart';
 
 // 14.03.2021 skins

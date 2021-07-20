@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/config/api.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/server/arrived.dart';
-import 'package:fooddelivery/model/server/getOrders.dart';
-import 'package:fooddelivery/ui/main/home/home.dart';
-import 'package:fooddelivery/ui/main/orders/orders.dart';
-import 'package:fooddelivery/widget/easyDialog2.dart';
-import 'package:fooddelivery/widget/ibutton3.dart';
-import 'package:fooddelivery/widget/skinRoute.dart';
+import 'package:shopping/config/api.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/server/arrived.dart';
+import 'package:shopping/model/server/getOrders.dart';
+import 'package:shopping/ui/main/home/home.dart';
+import 'package:shopping/ui/main/orders/orders.dart';
+import 'package:shopping/widget/easyDialog2.dart';
+import 'package:shopping/widget/ibutton3.dart';
+import 'package:shopping/widget/skinRoute.dart';
+
 import '../mainscreen.dart';
 import 'map.dart';
 import 'widgets.dart';

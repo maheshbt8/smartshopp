@@ -1,4 +1,4 @@
-package com.abg.fooddelivery
+package com.shopping.smartshop
 
 //import io.flutter.embedding.android.FlutterActivity
 //import io.flutter.plugins.GeneratedPluginRegistrant

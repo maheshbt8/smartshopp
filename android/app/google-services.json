@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "182301348030",
-    "project_id": "myflutter-1626326932364",
-    "storage_bucket": "myflutter-1626326932364.appspot.com"
+    "project_number": "1079991402869",
+    "project_id": "smartshopp-ecd27",
+    "storage_bucket": "smartshopp-ecd27.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:182301348030:android:b3c2300709f9a361484eef",
+        "mobilesdk_app_id": "1:1079991402869:android:5938b3238cf026bebdd33c",
         "android_client_info": {
-          "package_name": "com.abg.fooddelivery"
+          "package_name": "com.shopping.smartshop"
         }
       },
       "oauth_client": [
         {
-          "client_id": "182301348030-4u1l40dqkejuj7hosva81em3ffko9jsa.apps.googleusercontent.com",
+          "client_id": "1079991402869-4ns9ag1ueoin9a7kushjc05a8eemqr4s.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.abg.fooddelivery",
+            "package_name": "com.shopping.smartshop",
             "certificate_hash": "8d738de658b726caecfa4795601ee0df7f300d2c"
           }
         },
         {
-          "client_id": "182301348030-1059o5cogp3sfvf87sl1elo6mfp58gtk.apps.googleusercontent.com",
+          "client_id": "1079991402869-3g8jbaajvo0j009efds5r4ef8msbiov5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBCoUM1TW51K07f82ykfPXhZ4SPzAFgwZ8"
+          "current_key": "AIzaSyAqg-auLaKBDbV5AyJwTe0InGUrKargAFc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "182301348030-1059o5cogp3sfvf87sl1elo6mfp58gtk.apps.googleusercontent.com",
+              "client_id": "1079991402869-3g8jbaajvo0j009efds5r4ef8msbiov5.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -1,4 +1,4 @@
-import 'package:fooddelivery/model/server/mainwindowdata.dart';
+import 'package:shopping/model/server/mainwindowdata.dart';
 
 List<Restaurants> nearYourRestaurants = [];
 List<Restaurants> topRestaurants = [];

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/dprint.dart';
-import 'package:fooddelivery/config/api.dart';
-import 'package:fooddelivery/model/pref.dart';
+
 import 'package:http/http.dart' as http;
+import 'package:shopping/config/api.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/dprint.dart';
+import 'package:shopping/model/pref.dart';
 import 'dart:convert';
 
 import '../utils.dart';

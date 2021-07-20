@@ -1,19 +1,19 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/categories.dart';
-import 'package:fooddelivery/model/dprint.dart';
-import 'package:fooddelivery/model/foods.dart';
-import 'package:fooddelivery/model/homescreenModel.dart';
-import 'package:fooddelivery/model/server/category.dart';
-import 'package:fooddelivery/model/server/mainwindowdata.dart';
-import 'package:fooddelivery/ui/main/home/home.dart';
-import 'package:fooddelivery/widget/buttonadd.dart';
-import 'package:fooddelivery/widget/easyDialog2.dart';
-import 'package:fooddelivery/widget/ibutton3.dart';
-import 'package:fooddelivery/widget/ilist1.dart';
-import 'package:fooddelivery/widget/skinRoute.dart';
-import 'package:fooddelivery/widget/wproducts.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/categories.dart';
+import 'package:shopping/model/dprint.dart';
+import 'package:shopping/model/foods.dart';
+import 'package:shopping/model/homescreenModel.dart';
+import 'package:shopping/model/server/category.dart';
+import 'package:shopping/model/server/mainwindowdata.dart';
+import 'package:shopping/ui/main/home/home.dart';
+import 'package:shopping/widget/buttonadd.dart';
+import 'package:shopping/widget/easyDialog2.dart';
+import 'package:shopping/widget/ibutton3.dart';
+import 'package:shopping/widget/ilist1.dart';
+import 'package:shopping/widget/skinRoute.dart';
+import 'package:shopping/widget/wproducts.dart';
 import 'mainscreen.dart';
 
 class CategoryDetailsScreen extends StatefulWidget {

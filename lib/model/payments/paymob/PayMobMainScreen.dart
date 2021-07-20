@@ -1,6 +1,6 @@
 import 'dart:core';
-import 'package:fooddelivery/widget/easyDialog2.dart';
-import 'package:fooddelivery/widget/ibutton3.dart';
+import 'package:shopping/widget/easyDialog2.dart';
+import 'package:shopping/widget/ibutton3.dart';
 import '../../../main.dart';
 import 'package:flutter/material.dart';
 import '../../homescreenModel.dart';

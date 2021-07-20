@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/dprint.dart';
-import 'package:fooddelivery/model/homescreenModel.dart';
-import 'package:fooddelivery/model/pref.dart';
-import 'package:fooddelivery/model/server/mainwindowdata.dart';
-import 'package:fooddelivery/model/topRestourants.dart';
-import 'package:fooddelivery/ui/main/home/home.dart';
-import 'package:fooddelivery/widget/ilist1.dart';
-import 'package:fooddelivery/widget/ipromotion.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/dprint.dart';
+import 'package:shopping/model/homescreenModel.dart';
+import 'package:shopping/model/pref.dart';
+import 'package:shopping/model/server/mainwindowdata.dart';
+import 'package:shopping/model/topRestourants.dart';
+import 'package:shopping/ui/main/home/home.dart';
+import 'package:shopping/widget/ilist1.dart';
+import 'package:shopping/widget/ipromotion.dart';
 import '../ICard20FileCaching.dart';
 
 bHomeTopRestaurants(List<Widget> list, double windowWidth,

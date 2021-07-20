@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/server/getOrders.dart';
-import 'package:fooddelivery/ui/main/mainscreen.dart';
-import 'package:fooddelivery/widget/itemBasketText.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/server/getOrders.dart';
+import 'package:shopping/ui/main/mainscreen.dart';
+import 'package:shopping/widget/itemBasketText.dart';
 
 addOrdersDetails(List<Widget> list, List<OrdersData> _data, String idOrder, double windowWidth){
   list.add(SizedBox(height: 20, ));

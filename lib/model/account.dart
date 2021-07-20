@@ -1,14 +1,15 @@
-import 'package:fooddelivery/config/api.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/dprint.dart';
-import 'package:fooddelivery/model/foods.dart';
-import 'package:fooddelivery/model/pref.dart';
-import 'package:fooddelivery/model/server/favorites.dart';
-import 'package:fooddelivery/model/server/fcbToken.dart';
-import 'package:fooddelivery/model/server/getBasket.dart';
-import 'package:fooddelivery/model/server/login.dart';
-import 'package:fooddelivery/model/server/mainwindowdata.dart';
-import 'package:fooddelivery/ui/main/mainscreen.dart';
+
+import 'package:shopping/config/api.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/dprint.dart';
+import 'package:shopping/model/foods.dart';
+import 'package:shopping/model/pref.dart';
+import 'package:shopping/model/server/favorites.dart';
+import 'package:shopping/model/server/fcbToken.dart';
+import 'package:shopping/model/server/getBasket.dart';
+import 'package:shopping/model/server/login.dart';
+import 'package:shopping/model/server/mainwindowdata.dart';
+import 'package:shopping/ui/main/mainscreen.dart';
 
 class Account {
 

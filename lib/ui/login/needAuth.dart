@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/widget/ibutton3.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/widget/ibutton3.dart';
 
 _pressLoginButton(BuildContext context){
   print("User pressed \"LOGIN\" button");

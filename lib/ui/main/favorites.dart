@@ -1,16 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/dprint.dart';
-import 'package:fooddelivery/model/foods.dart';
-import 'package:fooddelivery/model/homescreenModel.dart';
-import 'package:fooddelivery/model/server/mainwindowdata.dart';
-import 'package:fooddelivery/ui/login/needAuth.dart';
-import 'package:fooddelivery/ui/main/home/home.dart';
-import 'package:fooddelivery/widget/buttonadd.dart';
-import 'package:fooddelivery/widget/iinkwell.dart';
-import 'package:fooddelivery/widget/ilist2.dart';
-import 'package:fooddelivery/widget/wproducts.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/dprint.dart';
+import 'package:shopping/model/foods.dart';
+import 'package:shopping/model/homescreenModel.dart';
+import 'package:shopping/model/server/mainwindowdata.dart';
+import 'package:shopping/ui/login/needAuth.dart';
+import 'package:shopping/ui/main/home/home.dart';
+import 'package:shopping/widget/buttonadd.dart';
+import 'package:shopping/widget/iinkwell.dart';
+import 'package:shopping/widget/ilist2.dart';
+import 'package:shopping/widget/wproducts.dart';
 
 class FavoritesScreen extends StatefulWidget {
   final Function(String) callback;

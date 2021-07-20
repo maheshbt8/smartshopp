@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/homescreenModel.dart';
-import 'package:fooddelivery/widget/ibuttonCount.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/homescreenModel.dart';
+import 'package:shopping/widget/ibuttonCount.dart';
 
 import 'ibutton3Cart.dart';
 

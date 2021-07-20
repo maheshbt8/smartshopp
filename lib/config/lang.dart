@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/pref.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/pref.dart';
 
 import 'language/langDeu.dart';
 import 'language/langArabic.dart';

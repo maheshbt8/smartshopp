@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/server/forgot.dart';
-import 'package:fooddelivery/widget/easyDialog2.dart';
-import 'package:fooddelivery/widget/iappBar.dart';
-import 'package:fooddelivery/widget/ibackground4.dart';
-import 'package:fooddelivery/widget/ibutton3.dart';
-import 'package:fooddelivery/widget/iinputField2a.dart';
-import 'package:fooddelivery/widget/skinRoute.dart';
+
+import 'package:shopping/main.dart';
+import 'package:shopping/model/server/forgot.dart';
+import 'package:shopping/widget/easyDialog2.dart';
+import 'package:shopping/widget/iappBar.dart';
+import 'package:shopping/widget/ibackground4.dart';
+import 'package:shopping/widget/ibutton3.dart';
+import 'package:shopping/widget/iinputField2a.dart';
+import 'package:shopping/widget/skinRoute.dart';
 
 class ForgotScreen extends StatefulWidget {
   @override

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/config/api.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/categories.dart';
-import 'package:fooddelivery/model/foods.dart';
-import 'package:fooddelivery/model/homescreenModel.dart';
-import 'package:fooddelivery/model/server/mainwindowdata.dart';
-import 'package:fooddelivery/ui/main/mainscreen.dart';
-import 'package:fooddelivery/widget/ProductsTileList.dart';
-import 'package:fooddelivery/widget/ilist1.dart';
+
+import 'package:shopping/config/api.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/categories.dart';
+import 'package:shopping/model/foods.dart';
+import 'package:shopping/model/homescreenModel.dart';
+import 'package:shopping/model/server/mainwindowdata.dart';
+import 'package:shopping/ui/main/mainscreen.dart';
+import 'package:shopping/widget/ProductsTileList.dart';
+import 'package:shopping/widget/ilist1.dart';
 
 bRProducts(DishesData _this, List<Widget> list, double windowWidth,
     Function (String id, String heroId) callback, Function(String id) _onAddToCartClick){

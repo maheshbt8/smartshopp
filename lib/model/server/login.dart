@@ -1,6 +1,6 @@
-import 'package:fooddelivery/model/dprint.dart';
-import 'package:fooddelivery/config/api.dart';
 import 'package:http/http.dart' as http;
+import 'package:shopping/config/api.dart';
+import 'package:shopping/model/dprint.dart';
 import 'dart:convert';
 
 import '../utils.dart';

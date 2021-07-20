@@ -1,6 +1,6 @@
-import 'package:fooddelivery/model/dprint.dart';
-import 'package:fooddelivery/ui/main/home/home.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
+import 'package:shopping/model/dprint.dart';
+import 'package:shopping/ui/main/home/home.dart';
 
 
 //

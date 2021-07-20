@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/dprint.dart';
-import 'package:fooddelivery/model/server/addressDelete.dart';
-import 'package:fooddelivery/model/server/addressGet.dart';
-import 'package:fooddelivery/model/server/addressSave.dart';
-import 'package:fooddelivery/widget/ICard35FileCaching.dart';
-import 'package:fooddelivery/widget/easyDialog2.dart';
-import 'package:fooddelivery/widget/ibutton3.dart';
-import 'package:fooddelivery/widget/iinkwell.dart';
-import 'package:fooddelivery/widget/iinputField2.dart';
-import 'package:fooddelivery/ui/main/map2.dart';
-import 'package:fooddelivery/widget/skinRoute.dart';
+
 import 'package:google_maps_webservice/places.dart';
-import 'package:fooddelivery/model/homescreenModel.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/dprint.dart';
+import 'package:shopping/model/homescreenModel.dart';
+import 'package:shopping/model/server/addressDelete.dart';
+import 'package:shopping/model/server/addressGet.dart';
+import 'package:shopping/model/server/addressSave.dart';
+import 'package:shopping/ui/main/chat/iinputField2a.dart';
+import 'package:shopping/ui/main/map2.dart';
+import 'package:shopping/widget/ICard35FileCaching.dart';
+import 'package:shopping/widget/easyDialog2.dart';
+import 'package:shopping/widget/ibutton3.dart';
+import 'package:shopping/widget/iinkwell.dart';
+import 'package:shopping/widget/skinRoute.dart';
 
 class AddressScreen extends StatefulWidget {
   AddressScreen({Key key, this.callback}) : super(key: key);

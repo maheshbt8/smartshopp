@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/widget/ibutton3.dart';
-import 'package:fooddelivery/widget/iinkwell.dart';
-import 'package:fooddelivery/widget/iinputField2.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/widget/ibutton3.dart';
+import 'package:shopping/widget/iinkwell.dart';
+import 'package:shopping/widget/iinputField2.dart';
 
 // ignore: must_be_immutable
 class VehicleScreen extends StatefulWidget {

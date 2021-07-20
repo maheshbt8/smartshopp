@@ -3,14 +3,10 @@ import 'dart:async';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/config/api.dart';
-import 'package:fooddelivery/model/account.dart';
-import 'package:fooddelivery/model/homescreenModel.dart';
-import 'package:fooddelivery/model/pref.dart';
-import 'package:fooddelivery/route.dart';
-import 'package:fooddelivery/config/theme.dart';
-import 'package:fooddelivery/ui/login/login.dart';
-import 'package:fooddelivery/ui/start/splash.dart';
+import 'package:shopping/config/api.dart';
+import 'package:shopping/model/homescreenModel.dart';
+import 'package:shopping/ui/login/login.dart';
+import 'package:shopping/ui/start/splash.dart';
 import 'config/lang.dart';
 import 'package:firebase_core/firebase_core.dart';
 

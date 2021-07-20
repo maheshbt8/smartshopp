@@ -1,8 +1,10 @@
-import 'package:fooddelivery/model/dprint.dart';
-import 'package:fooddelivery/config/api.dart';
-import 'package:fooddelivery/model/server/chatGet.dart';
+
 import 'package:http/http.dart' as http;
+import 'package:shopping/config/api.dart';
 import 'dart:convert';
+
+import 'package:shopping/model/dprint.dart';
+import 'package:shopping/model/server/chatGet.dart';
 
 chatSend(String uid, String text, Function(List<ChatMessages>) callback, Function(String) callbackError) async {
 

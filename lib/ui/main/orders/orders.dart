@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/config/api.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/server/getOrders.dart';
-import 'package:fooddelivery/ui/login/needAuth.dart';
-import 'package:fooddelivery/ui/main/home/home.dart';
-import 'package:fooddelivery/widget/skinRoute.dart';
+import 'package:shopping/config/api.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/server/getOrders.dart';
+import 'package:shopping/ui/login/needAuth.dart';
+import 'package:shopping/ui/main/home/home.dart';
+import 'package:shopping/widget/skinRoute.dart';
 import '../mainscreen.dart';
 
 class OrdersScreen extends StatefulWidget {

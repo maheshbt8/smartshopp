@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/config/api.dart';
-import 'package:fooddelivery/main.dart';
-import 'package:fooddelivery/model/server/mainwindowdata.dart';
-import 'package:fooddelivery/widget/cacheImageWidget.dart';
-import 'package:fooddelivery/widget/iList6.dart';
-import 'package:fooddelivery/widget/iboxCircle.dart';
-import 'package:fooddelivery/widget/iinkwell.dart';
-import 'package:fooddelivery/widget/ilist1.dart';
+import 'package:shopping/config/api.dart';
+import 'package:shopping/main.dart';
+import 'package:shopping/model/server/mainwindowdata.dart';
+import 'package:shopping/widget/cacheImageWidget.dart';
+import 'package:shopping/widget/iList6.dart';
+import 'package:shopping/widget/iboxCircle.dart';
+import 'package:shopping/widget/iinkwell.dart';
+import 'package:shopping/widget/ilist1.dart';
 
 import '../mainscreen.dart';
 

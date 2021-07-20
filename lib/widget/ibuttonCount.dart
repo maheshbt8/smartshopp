@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/widget/iinkwell.dart';
+import 'package:shopping/widget/iinkwell.dart';
 
 class IButtonCount extends StatefulWidget {
   @required final Function(int) pressButton;
