@@ -20,7 +20,9 @@ class OTPScreen extends StatefulWidget {
   final String password;
   final String type;
   final String photo;
+
   const OTPScreen({Key key, this.email, this.password, this.name, this.type, this.photo}) : super(key: key);
+
   @override
   _OTPScreenState createState() => _OTPScreenState();
 }

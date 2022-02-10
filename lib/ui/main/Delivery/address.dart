@@ -189,6 +189,7 @@ class _AddressScreenState extends State<AddressScreen> {
           onChangeText: (String value) async {
             dprint("ok -s $value");
             PlacesSearchResponse response = await places.searchByText(value);
+            print("placesdata : ${response.results}");
             if (response.status == "REQUEST_DENIED") {
               apiError = response.errorMessage;
               dprint("Google MAPs API REQUEST_DENIED");

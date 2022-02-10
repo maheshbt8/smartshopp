@@ -22,11 +22,11 @@ class CategoryDetailsScreen extends StatefulWidget {
   _CategoryDetailsScreenState createState() => _CategoryDetailsScreenState();
 }
 
-class _CategoryDetailsScreenState extends State<CategoryDetailsScreen> with SingleTickerProviderStateMixin {
-
+class _CategoryDetailsScreenState extends State<CategoryDetailsScreen>
+    with SingleTickerProviderStateMixin {
   _onCategoriesClick(String id, String heroId, String image) {
     dprint("User pressed Category item with id: $id");
-    if (id == ""){
+    if (id == "") {
       id = firstCategory;
       image = firstCategoryImage;
       _categoryImage = firstCategoryImage;
@@ -37,8 +37,8 @@ class _CategoryDetailsScreenState extends State<CategoryDetailsScreen> with Sing
     dprint("_onCategoriesClick $_categoryImage");
     _waits(true);
     category.get(currentCategoryId, _success, _error);
-    _controller.animateTo(
-        0, duration: Duration(seconds: 1), curve: Curves.ease);
+    _controller.animateTo(0,
+        duration: Duration(seconds: 1), curve: Curves.ease);
   }
 
   _onDishesClick(String id, String heroId) {
@@ -81,10 +81,8 @@ class _CategoryDetailsScreenState extends State<CategoryDetailsScreen> with Sing
     super.dispose();
   }
 
-  callback(bool reg){
-    if (mounted)
-      setState(() {
-      });
+  callback(bool reg) {
+    if (mounted) setState(() {});
   }
 
   String _categoryName = "";
@@ -109,43 +107,34 @@ class _CategoryDetailsScreenState extends State<CategoryDetailsScreen> with Sing
 
   _waits(bool value) {
     _wait = value;
-    if (mounted)
-      setState(() {
-      });
+    if (mounted) setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    windowWidth = MediaQuery
-        .of(context)
-        .size
-        .width;
-    windowHeight = MediaQuery
-        .of(context)
-        .size
-        .height;
+    windowWidth = MediaQuery.of(context).size.width;
+    windowHeight = MediaQuery.of(context).size.height;
     return WillPopScope(
         onWillPop: () async {
-      if (mainCurrentDialogShow != 0) {
-        setState(() {
-          mainCurrentDialogShow = 0;
-        });
-        return false;
-      }
-      Navigator.pop(context);
-      return false;
-    },
-    child: Scaffold(
-        key: _scaffoldKey,
-        backgroundColor: theme.colorBackground,
-        body: Directionality(
-            textDirection: strings.direction,
-            child: Stack(
-                children: [
+          if (mainCurrentDialogShow != 0) {
+            setState(() {
+              mainCurrentDialogShow = 0;
+            });
+            return false;
+          }
+          Navigator.pop(context);
+          return false;
+        },
+        child: Scaffold(
+            key: _scaffoldKey,
+            backgroundColor: theme.colorBackground,
+            body: Directionality(
+                textDirection: strings.direction,
+                child: Stack(children: [
                   NestedScrollView(
                       controller: _controller,
-                      headerSliverBuilder: (BuildContext context,
-                          bool innerBoxIsScrolled) {
+                      headerSliverBuilder:
+                          (BuildContext context, bool innerBoxIsScrolled) {
                         return [
                           SliverAppBar(
                             expandedHeight: windowHeight * 0.35,
@@ -159,30 +148,34 @@ class _CategoryDetailsScreenState extends State<CategoryDetailsScreen> with Sing
                           )
                         ];
                       },
-
                       body: Stack(
                         children: <Widget>[
-
                           Container(
                             child: _body(),
                           ),
-
                           if (_addToBasketItem != null)
-                            buttonAddToCart(_addToBasketItem, (){setState(() {});}, ( ){_addToBasketItem = null; setState(() {});},
-                                _scaffoldKey),
-
-                          if (_wait)
-                            skinWait(context, false),
-
-                          IEasyDialog2(setPosition: (double value) {mainCurrentDialogShow = value;}, getPosition: () {return mainCurrentDialogShow;},
-                            color: theme.colorGrey, body: mainCurrentDialogBody, backgroundColor: theme.colorBackground,),
-
+                            buttonAddToCart(_addToBasketItem, () {
+                              setState(() {});
+                            }, () {
+                              _addToBasketItem = null;
+                              setState(() {});
+                            }, _scaffoldKey),
+                          if (_wait) skinWait(context, false),
+                          IEasyDialog2(
+                            setPosition: (double value) {
+                              mainCurrentDialogShow = value;
+                            },
+                            getPosition: () {
+                              return mainCurrentDialogShow;
+                            },
+                            color: theme.colorGrey,
+                            body: mainCurrentDialogBody,
+                            backgroundColor: theme.colorBackground,
+                          ),
                         ],
-                      )
-                  ),
+                      )),
                   skinHeaderBackButton(context, Colors.white)
-                ])
-        )));
+                ]))));
   }
 
   _body() {
@@ -197,54 +190,68 @@ class _CategoryDetailsScreenState extends State<CategoryDetailsScreen> with Sing
   _children() {
     List<Widget> list = [];
 
-    list.add(SizedBox(height: 20,));
+    list.add(SizedBox(
+      height: 20,
+    ));
 
     list.add(Container(
       margin: EdgeInsets.only(left: 20, right: 20),
       child: ListWithIcon(
-          imageAsset: (theme.vendor) ? "assets/orders2.png" : "assets/orders.png", text: _categoryName, //  name
+          imageAsset:
+              (theme.vendor) ? "assets/orders2.png" : "assets/orders.png",
+          text: _categoryName, //  name
           imageColor: theme.colorDefaultText),
     ));
 
     if (_categoryDesc.isNotEmpty) {
-      list.add(SizedBox(height: 20,));
+      list.add(SizedBox(
+        height: 20,
+      ));
       list.add(Container(
         margin: EdgeInsets.only(left: 20, right: 20),
         child: Text(_categoryDesc, style: theme.text14), // description
       ));
     }
 
-    horizontalCategoriesCircleRestaurantV2(list, categories, dishData, windowWidth, _onCategoriesClick, currentCategoryId);
+    horizontalCategoriesCircleRestaurantV2(list, categories, dishData,
+        windowWidth, _onCategoriesClick, currentCategoryId);
 
-    list.add(SizedBox(height: 20,));
+    list.add(SizedBox(
+      height: 20,
+    ));
 
     list.add(Container(
       margin: EdgeInsets.only(left: 20, right: 20),
       child: ListWithIcon(
-          imageAsset: "assets/top.png", text: strings.get(91), // Dishes
+          imageAsset: "assets/top.png",
+          text: strings.get(91), // Dishes
           imageColor: theme.colorDefaultText),
     ));
 
     if (appSettings.typeFoods == "type2")
-      dishList2(list, dishData, context, _onDishesClick, windowWidth, currentCategoryId, _onAddToCartClick);
+      dishList2(list, dishData, context, _onDishesClick, windowWidth,
+          currentCategoryId, _onAddToCartClick);
     else {
       if (appSettings.oneInLine == "false")
-        dishList(list, dishData, context, _onDishesClick, windowWidth, _onAddToCartClick, currentCategoryId);
+        dishList(list, dishData, context, _onDishesClick, windowWidth,
+            _onAddToCartClick, currentCategoryId);
       else
-        dishListOneInLine(list, dishData, _onDishesClick, windowWidth, _onAddToCartClick, currentCategoryId);
+        dishListOneInLine(list, dishData, _onDishesClick, windowWidth,
+            _onAddToCartClick, currentCategoryId);
     }
-    list.add(SizedBox(height: 150,));
+    list.add(SizedBox(
+      height: 150,
+    ));
     return list;
   }
 
   DishesData _addToBasketItem;
 
-  _onAddToCartClick(String id){
+  _onAddToCartClick(String id) {
     dprint("add to cart click id=$id");
     _addToBasketItem = loadFood(id);
     _addToBasketItem.count = 1;
-    setState(() {
-    });
+    setState(() {});
   }
 
   _imageBuild() {
@@ -257,27 +264,22 @@ class _CategoryDetailsScreenState extends State<CategoryDetailsScreen> with Sing
                   tag: idHeroes,
                   child: ClipRRect(
                       child: Container(
-                        child: CachedNetworkImage(
-                          placeholder: (context, url) =>
-                              CircularProgressIndicator(),
-                          imageUrl: _categoryImage,
-                          imageBuilder: (context, imageProvider) =>
-                              Container(
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: imageProvider,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                          errorWidget: (context, url, error) =>
-                          new Icon(Icons.error),
+                    child: CachedNetworkImage(
+                      placeholder: (context, url) =>
+                          CircularProgressIndicator(),
+                      imageUrl: _categoryImage,
+                      imageBuilder: (context, imageProvider) => Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: imageProvider,
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                      )
-                  )
-              )
-          ),
-
+                      ),
+                      errorWidget: (context, url, error) =>
+                          new Icon(Icons.error),
+                    ),
+                  )))),
       ],
     );
   }
@@ -285,25 +287,25 @@ class _CategoryDetailsScreenState extends State<CategoryDetailsScreen> with Sing
   openDialog(String _text) {
     mainCurrentDialogBody = Column(
       children: [
-        Text(_text, style: theme.text14,),
-        SizedBox(height: 40,),
+        Text(
+          _text,
+          style: theme.text14,
+        ),
+        SizedBox(
+          height: 40,
+        ),
         IButton3(
             color: theme.colorPrimary,
             text: strings.get(155), // Cancel
             textStyle: theme.text14boldWhite,
             pressButton: () {
               mainCurrentDialogShow = 0;
-              if (mounted)
-                setState(() {
-                });
-            }
-        ),
+              if (mounted) setState(() {});
+            }),
       ],
     );
 
     mainCurrentDialogShow = 1;
-    if (mounted)
-      setState(() {
-      });
+    if (mounted) setState(() {});
   }
 }

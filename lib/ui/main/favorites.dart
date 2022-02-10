@@ -228,8 +228,17 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
     idDishes = id;
     route.setDuration(1);
     route.push(context, "/dishesdetails");
+    removeAllHtmlTags(id);
   }
+  String removeAllHtmlTags(String htmlText) {
+    RegExp exp = RegExp(
+        r"<[^>]*>",
+        multiLine: true,
+        caseSensitive: true
+    );
 
+    return htmlText.replaceAll(exp, '');
+  }
   _onListIconClick(){
     if (!_selectList){
       _selectList = true;

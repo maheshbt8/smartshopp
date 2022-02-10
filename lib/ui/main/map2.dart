@@ -45,6 +45,8 @@ class _MapInfoScreenState extends State<MapInfoScreen> {
   _onMapTap(LatLng pos) async {
     PlacesSearchResponse response = await places.searchNearbyWithRadius(new Location(lat: pos.latitude, lng: pos.longitude), 20);
     _textAddress = "";
+    print("OnMapTap : ${response.results}");
+
     if (response.results.isNotEmpty) {
       for (var item in response.results)
         if (item.vicinity != null)
@@ -57,8 +59,9 @@ class _MapInfoScreenState extends State<MapInfoScreen> {
 
   _onPressSearch(String val) async {
     _searchValue = val;
+    print("Text : $val}");
     PlacesSearchResponse response = await places.searchByText(val);
-    print(response.toString());
+    print("Response Data : ${response.results}");
     _searchResult = [];
     for (var ret in response.results) {
       _searchResult.add(
@@ -94,8 +97,6 @@ class _MapInfoScreenState extends State<MapInfoScreen> {
     setState(() {
     });
   }
-
-  //
   //////////////////////////////////////////////////////////////////////////////////////////////////////
   var windowWidth;
   var windowHeight;
@@ -175,8 +176,11 @@ class _MapInfoScreenState extends State<MapInfoScreen> {
                     radius: appSettings.radius,
                     shadow: appSettings.shadow,
                     direction: strings.direction,
-                    hint: strings.get(34), // "Search",
-                    icon: Icons.search,
+                    hint: "Search your address...",
+                    // hint: strings.get(34), // "Search",
+                     icon: Icons.search,
+                    //this for the icon is showing in right side
+                    //iconRight: Icons.search,
                     onChangeText: _onPressSearch,
                     colorDefaultText: theme.colorDefaultText,
                     colorBackground: theme.colorBackground,
@@ -278,6 +282,8 @@ class _MapInfoScreenState extends State<MapInfoScreen> {
             _controller.setMapStyle(_mapStyle);
         });
   }
+
+
 
   _buttonPlus(){
     return Stack(
@@ -423,7 +429,7 @@ class _MapInfoScreenState extends State<MapInfoScreen> {
         markerId: _lastMarkerId,
         position: LatLng(pos.latitude, pos.longitude),
         onTap: () {
-
+          print("This clicked");
         }
     );
     markers.add(marker);

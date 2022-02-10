@@ -437,7 +437,7 @@ class DishesData {
       restaurant: json['restaurant'].toString(),
       restaurantName: json['restaurantName'].toString(),
       image: json['image'].toString(),
-      desc : json['desc'].toString(),
+      desc : json['desc'].replaceAll(RegExp(r'<[^>]*>|&[^;]+;'), '\n').toString(),
       ingredients: json['ingredients'].toString(),
       nutritions: m,
       extras: n,
@@ -465,14 +465,14 @@ class DishesData {
     fee = item.fee;
     percent = item.percent;
     id = item.id;
-    desc = item.desc;
+    desc = item.desc.replaceAll(RegExp(r'<[^>]*>|&[^;]+;'), '\n');
     restaurantName = item.restaurantName;
     restaurant = item.restaurant;
     restaurantPhone = item.restaurantPhone;
     restaurantMobilePhone = item.restaurantMobilePhone;
     price = item.price;
     discountprice = item.discountprice;
-    ingredients = item.ingredients;
+    ingredients = item.ingredients.toString();
     count = item.count;
     extras = [];
     category = item.category;
@@ -551,7 +551,7 @@ class RestaurantsReviewsData {
     return RestaurantsReviewsData(
       id : json['id'].toString(),
       updatedAt: json['updated_at'].toString(),
-      desc: json['desc'].toString(),
+      desc: json["desc!"].toString(),
       name: json['name'].toString(),
       image: "$serverImages${json['image']}",
       rate: toInt(json['rate'].toString()),

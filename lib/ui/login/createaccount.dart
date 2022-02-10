@@ -55,11 +55,11 @@ class _CreateAccountScreenState extends State<CreateAccountScreen>
         context,
         MaterialPageRoute(
           builder: (context) => OTPScreen(
-            name: editControllerName.text,
-            email: editControllerEmail.text,
-            type: "email",
-            password: editControllerPassword1.text,
-            photo: ""
+              name: editControllerName.text,
+              email: editControllerEmail.text,
+              type: "email",
+              password: editControllerPassword1.text,
+              photo: ""
           ),
         ),
       );
@@ -164,49 +164,49 @@ class _CreateAccountScreenState extends State<CreateAccountScreen>
     });
     return WillPopScope(
         onWillPop: () async {
-      if (_show != 0){
-        setState(() {
-          _show = 0;
-        });
-        return false;
-      }
-      return true;
-    },
-    child: Scaffold(
-      backgroundColor: theme.colorBackground,
+          if (_show != 0){
+            setState(() {
+              _show = 0;
+            });
+            return false;
+          }
+          return true;
+        },
+        child: Scaffold(
+            backgroundColor: theme.colorBackground,
 
-      body: Directionality(
-        textDirection: strings.direction,
-        child: Stack(
-        children: <Widget>[
+            body: Directionality(
+              textDirection: strings.direction,
+              child: Stack(
+                children: <Widget>[
 
-          if (theme.appSkin == "basic")
-            IBackground4(width: windowWidth, colorsGradient: theme.colorsGradient),
-          if (theme.appSkin == "smarter")
-            Container(
-              width: windowWidth,
-              height: windowHeight,
-              color: theme.colorPrimary,
-            ),
+                  if (theme.appSkin == "basic")
+                    IBackground4(width: windowWidth, colorsGradient: theme.colorsGradient),
+                  if (theme.appSkin == "smarter")
+                    Container(
+                      width: windowWidth,
+                      height: windowHeight,
+                      color: theme.colorPrimary,
+                    ),
 
-          Container(
-            alignment: Alignment.bottomCenter,
-              margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
-              width: windowWidth,
-              child: _body(),
-           ),
+                  Container(
+                    alignment: Alignment.bottomCenter,
+                    margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                    width: windowWidth,
+                    child: _body(),
+                  ),
 
-          if (_wait)
-            skinWait(context, true),
+                  if (_wait)
+                    skinWait(context, true),
 
-          IEasyDialog2(setPosition: (double value){_show = value;}, getPosition: () {return _show;}, color: theme.colorGrey,
-            body: _dialogBody, backgroundColor: theme.colorBackground,),
+                  IEasyDialog2(setPosition: (double value){_show = value;}, getPosition: () {return _show;}, color: theme.colorGrey,
+                    body: _dialogBody, backgroundColor: theme.colorBackground,),
 
-          IAppBar(context: context, text: "", color: Colors.white),
+                  IAppBar(context: context, text: "", color: Colors.white),
 
-        ],
-      ),
-    )));
+                ],
+              ),
+            )));
   }
 
   _body(){
@@ -310,34 +310,34 @@ class _CreateAccountScreenState extends State<CreateAccountScreen>
                   _pressCreateAccountButton();
                 })),
 
-    if (appSettings.googleLogin == "true" || appSettings.facebookLogin == "true")
-        Container(child: Row(children: [
-          Expanded(child: Container(height: 0.3, color: theme.colorBackground,)),
-          Text(strings.get(271), style: theme.text14boldWhite),  // " or "
-          Expanded(child: Container(height: 0.3, color: theme.colorBackground,)),
-        ],)),
+        if (appSettings.googleLogin == "true" || appSettings.facebookLogin == "true")
+          Container(child: Row(children: [
+            Expanded(child: Container(height: 0.3, color: theme.colorBackground,)),
+            Text(strings.get(271), style: theme.text14boldWhite),  // " or "
+            Expanded(child: Container(height: 0.3, color: theme.colorBackground,)),
+          ],)),
 
-      if (appSettings.googleLogin == "true")
-        Container(
-            margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-            child: IButton4(
-                color: Color(0xffd9534f), text: strings.get(269), textStyle: theme.text14boldWhite,  // Sign In with Google
-                icon: "assets/google.png",
-                pressButton: (){
-                  _waits(true);
-                  googleLogin.login(_login, _error);
-                })),
+        if (appSettings.googleLogin == "true")
+          Container(
+              margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+              child: IButton4(
+                  color: Color(0xffd9534f), text: strings.get(269), textStyle: theme.text14boldWhite,  // Sign In with Google
+                  icon: "assets/google.png",
+                  pressButton: (){
+                    _waits(true);
+                    googleLogin.login(_login, _error);
+                  })),
 
-      if (appSettings.facebookLogin == "true")
-        Container(
-            margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-            child: IButton4(
-                color: Color(0xff428bca), text: strings.get(270), textStyle: theme.text14boldWhite,  // Sign In with Facebook
-                icon: "assets/facebook.png",
-                pressButton: (){
-                  _waits(true);
-                  facebookLogin.login(_login, _error);
-                })),
+        if (appSettings.facebookLogin == "true")
+          Container(
+              margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+              child: IButton4(
+                  color: Color(0xff428bca), text: strings.get(270), textStyle: theme.text14boldWhite,  // Sign In with Facebook
+                  icon: "assets/facebook.png",
+                  pressButton: (){
+                    _waits(true);
+                    facebookLogin.login(_login, _error);
+                  })),
 
         if (appSettings.googleLogin == "true" || appSettings.facebookLogin == "true")
           _buttoniOS(),
@@ -354,11 +354,11 @@ class _CreateAccountScreenState extends State<CreateAccountScreen>
         context,
         MaterialPageRoute(
           builder: (context) => OTPScreen(
-            name: name,
-            email: "$id@$type.com",
-            type: type,
-            password: id,
-            photo: photo
+              name: name,
+              email: "$id@$type.com",
+              type: type,
+              password: id,
+              photo: photo
           ),
         ),
       );

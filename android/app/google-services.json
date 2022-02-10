@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "804631197522-c81p1kclgj9h92fjkmb3pa187vkkdcr8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shopping.smartshop",
+            "certificate_hash": "fa6c07e90f5d03872dc3ee3076801f149e867342"
+          }
+        },
+        {
           "client_id": "804631197522-uv5ounpofrf0vj8nbfjbrau15v70p4ij.apps.googleusercontent.com",
           "client_type": 3
         }

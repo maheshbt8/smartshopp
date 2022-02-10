@@ -45,15 +45,14 @@ class Lang {
   ];
 
   Map<int, String> langEng = {
-    10 : "Vendor Markets",
+    10 : "Smartshopp",
     82 : "You can add to cart, only products from single market. Do you want to reset cart? And add new product.",
     142 : "Enjoying Market?",
     143 : "How would you rate this Market?",
-    200 : "Top Markets this week",
+    200 : "Top smartshopp Markets this week",
     247 : "Pickup from market",
-    259 : "The Market: ",
-    267 : "Market",
-
+    259 : "The Smartshopp Market: ",
+    267 : "Smartshopp Market",
     15 : "Login",
     16 : "Password",
     17 : "Forgot password",
@@ -320,7 +319,7 @@ class Lang {
     1267 : "Restaurant",
 
     //
-    2010 : "Market",
+    2010 : "smartshopp Market",
     2082 : "You can add to cart, only products from single market. Do you want to reset cart? And add new product.",
     2142 : "Enjoying Market?",
     2143 : "How would you rate this Market?",
@@ -330,14 +329,14 @@ class Lang {
     2267 : "Market",
 
     //
-    3010 : "Markets",
+    3010 : "smartshopp Markets",
     3082 : "You can add to cart, only products from single market. Do you want to reset cart? And add new product.",
     3142 : "Enjoying Market?",
-    3143 : "How would you rate this Market?",
+    3143 : "How would you rate this smartshopp?",
     3200 : "Top Market this week",
     3247 : "Pickup from Market",
-    3259 : "The Market: ",
-    3267 : "Market",
+    3259 : "The smartshopp Market: ",
+    3267 : "smartshopp Market",
   };
 
   //

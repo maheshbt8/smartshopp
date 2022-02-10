@@ -10,7 +10,6 @@ import 'package:shopping/ui/main/productsDetails/dishesDetails.dart';
 import 'package:shopping/ui/main/restaurantDetails.dart';
 
 class AppFoodRoute{
-
   Map<String, StatefulWidget> routes = {
     "/login" : LoginScreen(),
     "/forgot" : ForgotScreen(),
@@ -90,5 +89,4 @@ class AppFoodRoute{
         pop(context);
     }
   }
-
 }

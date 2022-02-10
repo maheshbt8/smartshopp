@@ -6,7 +6,7 @@
 //final String _path = "https://www.abg-studio.com/vmarkets_admin/";
 
 // new
-final String _path = "http://smartshopp.in/admin/";
+final String _path = "https://smartshopp.in/admin/";
 
 // final String _path = "http://10.0.2.2/vmarkets_admin/";
 // final String _path = "http://10.0.2.2/market_admin/";

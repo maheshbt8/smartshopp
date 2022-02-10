@@ -71,6 +71,7 @@ class BannerData {
   String details;
   String position;
   BannerData({this.id, this.image, this.type, this.details, this.position});
+
   factory BannerData.fromJson(Map<String, dynamic> json){
     return BannerData(
       id: json['id'].toString(),

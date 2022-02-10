@@ -66,23 +66,23 @@ class _AccountScreenState extends State<AccountScreen> {
     return Directionality(
         textDirection: strings.direction,
         child: Stack(
-        children: <Widget>[
+          children: <Widget>[
 
-          if (account.isAuth())(
-          Container(
-            child: Container(
-                child: ListView(
-                  padding: EdgeInsets.only(top: 0),
-                  shrinkWrap: true,
-                  children: _getList(),
-                )
-            ),
-          ))else
+            if (account.isAuth())(
+                Container(
+                  child: Container(
+                      child: ListView(
+                        padding: EdgeInsets.only(top: 0),
+                        shrinkWrap: true,
+                        children: _getList(),
+                      )
+                  ),
+                ))else
               mustAuth(windowWidth, context),
 
-        ],
+          ],
 
-    ));
+        ));
   }
 
   _getList() {
@@ -197,11 +197,11 @@ class _AccountScreenState extends State<AccountScreen> {
               Row(children: [
                 Expanded(child: Text(strings.get(273), style: theme.text14bold,)), // "Log In with Google",
                 Container(
-                    margin: EdgeInsets.only(top: 10),
-                    width: 100,
-                    child: IButton5(
-                        color: Color(0xffd9534f), text: "", textStyle: theme.text14boldWhite,
-                        icon: "assets/google.png",),
+                  margin: EdgeInsets.only(top: 10),
+                  width: 100,
+                  child: IButton5(
+                    color: Color(0xffd9534f), text: "", textStyle: theme.text14boldWhite,
+                    icon: "assets/google.png",),
                 )
               ],),
             if (account.typeReg == "facebook")
@@ -230,4 +230,3 @@ class _AccountScreenState extends State<AccountScreen> {
   }
 
 }
-

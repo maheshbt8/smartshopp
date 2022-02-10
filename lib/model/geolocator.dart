@@ -21,7 +21,7 @@ class MyLocation {
   }
 
   distance(double lat, double lng) async {
-    Map<PermissionGroup, PermissionStatus> permissions = await PermissionHandler().requestPermissions([PermissionGroup.location]);
+    Map<PermissionGroup, PermissionStatus> permissions = await PermissionHandler().requestPermissions([PermissionGroup.location,PermissionGroup.storage]);
 
     var _distanceInMeters = -1.0;
 

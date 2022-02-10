@@ -1,6 +1,15 @@
+import 'dart:io';
+import 'dart:typed_data';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:flutter/services.dart';
+import 'package:http/http.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:share/share.dart';
 import 'package:shopping/main.dart';
 import 'package:shopping/model/dprint.dart';
 import 'package:shopping/model/foods.dart';
@@ -24,26 +33,29 @@ import 'package:url_launcher/url_launcher.dart';
 
 class RestaurantDetailsScreen extends StatefulWidget {
   RestaurantDetailsScreen({Key key}) : super(key: key);
+
   @override
-  _RestaurantDetailsScreenState createState() => _RestaurantDetailsScreenState();
+  _RestaurantDetailsScreenState createState() =>
+      _RestaurantDetailsScreenState();
 }
 
-class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> with SingleTickerProviderStateMixin {
-
+class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen>
+    with SingleTickerProviderStateMixin {
   ///////////////////////////////////////////////////////////////////////////////
-  //
 
-  _onBannerClick(String id, String heroId, String image){
+  _onBannerClick(String id, String heroId, String image) {
     dprint("Banner click: $id");
-    for (var item in _this.banner1){
-      if (item.id == id){
-        if (item.type == "1") { // open food
+    for (var item in _this.banner1) {
+      if (item.id == id) {
+        if (item.type == "1") {
+          // open food
           idHeroes = heroId;
           idDishes = item.details;
           route.setDuration(1);
           route.push(context, "/dishesdetails");
         }
-        if (item.type == "2") { // open link
+        if (item.type == "2") {
+          // open link
           _openUrl(item.details);
         }
         break;
@@ -52,25 +64,21 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> with 
   }
 
   _openUrl(uri) async {
-    if (await canLaunch(uri))
-      await launch(uri);
+    if (await canLaunch(uri)) await launch(uri);
   }
 
-  _onCategoriesClick(String id, String heroId, String image){
+  _onCategoriesClick(String id, String heroId, String image) {
     print("User pressed Category item with id: $id");
     idHeroes = heroId;
     _currentCategoryId = id;
-    if (id == "")
-      _categoryName = strings.get(133); // All
+    if (id == "") _categoryName = strings.get(133); // All
     for (var item in _this.categories)
-      if (item.id == id)
-        _categoryName = item.name;
+      if (item.id == id) _categoryName = item.name;
 
-    setState(() {
-    });
+    setState(() {});
   }
 
-  _onDishesClick(String id, String heroId){
+  _onDishesClick(String id, String heroId) {
     print("User pressed Most Popular item with id: $id");
     idDishes = id;
     idHeroes = heroId;
@@ -78,16 +86,17 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> with 
     route.push(context, "/dishesdetails");
   }
 
-  _pressAddReview(){
+  _pressAddReview() {
     dprint("User pressed Add review");
     _openRatingDialog();
   }
 
-  _callbackDone(){
+  _callbackDone() {
     if (editControllerReview.text.isEmpty)
-      return  openDialog(strings.get(141)); //  Enter your review
-    print ("Pressed Ok in rating dialog");
-    reviewsRestaurantAdd(account.token, _this.restaurant.id.toString(), _stars.toString(), editControllerReview.text, _successReview, _error);
+      return openDialog(strings.get(141)); //  Enter your review
+    print("Pressed Ok in rating dialog");
+    reviewsRestaurantAdd(account.token, _this.restaurant.id.toString(),
+        _stars.toString(), editControllerReview.text, _successReview, _error);
   }
 
   ///////////////////////////////////////////////////////////////////////////////
@@ -123,10 +132,8 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> with 
     super.dispose();
   }
 
-  callback(bool reg){
-    if (mounted)
-      setState(() {
-      });
+  callback(bool reg) {
+    if (mounted) setState(() {});
   }
 
   _successReview(String date, List<RestaurantsReviewsData> reviews) {
@@ -139,28 +146,40 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> with 
     //       updatedAt: date,
     //       rate: _stars,)
     // );
-    setState(() {
-    });
+    setState(() {});
   }
 
-  _success(ResponseRestaurant _data){
+  _success(ResponseRestaurant _data) {
     _this = _data;
     _imageRestaurant = _this.restaurant.image;
     dishDataRestaurant.clear();
     dishDataRestaurant = _data.foods;
     _waits(false);
   }
-  _error(String error){
+
+  _error(String error) {
     _waits(false);
     openDialog("${strings.get(128)} $error"); // "Something went wrong. ",
   }
 
-  _waits(bool value){
+  _waits(bool value) {
     if (mounted)
       setState(() {
         _wait = value;
       });
     _wait = value;
+  }
+
+  void shareImage() async {
+    final response = await get(Uri.file(_imageRestaurant));
+    final bytes = response.bodyBytes;
+    final Directory temp = await getTemporaryDirectory();
+    final File imageFile = File('${temp.path}/tempImage');
+    imageFile.writeAsBytesSync(response.bodyBytes);
+    Share.shareFiles(
+      ['${temp.path}/_imageRestaurant'],
+      text: 'text to share',
+    );
   }
 
   @override
@@ -170,56 +189,92 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> with 
     return Scaffold(
         key: _scaffoldKey,
         backgroundColor: theme.colorBackground,
-        body: Directionality(
-        textDirection: strings.direction,
-        child: Stack(
-          children: [
-
-          NestedScrollView(
-            headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-              return [
-                SliverAppBar(
-                  expandedHeight: windowHeight*0.35,
-                  automaticallyImplyLeading: false,
-                  elevation: 0,
-                  backgroundColor: theme.colorBackground,
-                  flexibleSpace: FlexibleSpaceBar(
-                    collapseMode: CollapseMode.parallax,
-                    background: _imageBuild(),
-                 ),
-                floating: true,
-                )];
-            },
-
-            body: Stack (
-              children: <Widget>[
-
-                Container(
-                  child: _body(),
-                ),
-
-                if (_addToBasketItem != null)
-                  buttonAddToCart(_addToBasketItem, (){setState(() {});}, ( ){_addToBasketItem = null; setState(() {});},
-                      _scaffoldKey),
-
-                if (_wait)
-                  skinWait(context, true),
-
-                IEasyDialog2(setPosition: (double value){mainCurrentDialogShow = value;}, getPosition: () {return mainCurrentDialogShow;}, color: theme.colorGrey,
-                  body: mainCurrentDialogBody, backgroundColor: theme.colorBackground),
-
-                    ],
-                  )
+        //  code for sharing image when share icon presed
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.red[500],
+          child: Icon(
+            Icons.share,
+            color: Colors.white,
+            size: 20,
           ),
-
-            skinHeaderBackButton(context, Colors.white)
-
-          ],
-        ))
-    );
+          onPressed: () async {
+            final urlImage = '${_this.restaurant.image}';
+            final url = Uri.parse(urlImage);
+            final response = await http.get(url);
+            final bytes = response.bodyBytes;
+            final temp = await getTemporaryDirectory();
+            final path = '${temp.path}/image.jpg';
+            File(path).writeAsBytesSync(bytes);
+            Share.shareFiles([path], text: "${_this.restaurant.name} | Smartshopp In India \n Website: https://smartshopp.in \n Play Store: https://play.google.com/store/apps/details?id=com.shopping.smartshop");
+          },
+        ),
+        body: Directionality(
+            textDirection: strings.direction,
+            child: Stack(
+              children: [
+                NestedScrollView(
+                    headerSliverBuilder:
+                        (BuildContext context, bool innerBoxIsScrolled) {
+                      return [
+                        SliverAppBar(
+                          expandedHeight: windowHeight * 0.35,
+                          automaticallyImplyLeading: false,
+                          elevation: 0,
+                          backgroundColor: theme.colorBackground,
+                          flexibleSpace: FlexibleSpaceBar(
+                            collapseMode: CollapseMode.parallax,
+                            background: _imageBuild(),
+                          ),
+                          floating: true,
+                        )
+                      ];
+                    },
+                    body: Stack(
+                      children: <Widget>[
+                        Container(
+                          child: _body(),
+                        ),
+                        if (_addToBasketItem != null)
+                          buttonAddToCart(_addToBasketItem, () {
+                            setState(() {});
+                          }, () {
+                            _addToBasketItem = null;
+                            setState(() {});
+                          }, _scaffoldKey),
+                        if (_wait) skinWait(context, true),
+                        IEasyDialog2(
+                            setPosition: (double value) {
+                              mainCurrentDialogShow = value;
+                            },
+                            getPosition: () {
+                              return mainCurrentDialogShow;
+                            },
+                            color: theme.colorGrey,
+                            body: mainCurrentDialogBody,
+                            backgroundColor: theme.colorBackground),
+                      ],
+                    )),
+                /*  Positioned(
+                  bottom: 20,
+                  right: 20,
+                  child: Container(
+                    height: 40,
+                    width: 40,
+                    child: InkWell(
+                      onTap: () {
+                        _share();
+                      },
+                      child: Image.asset("assets/img_share.png"),
+                    ),
+                    // color: Colors.red,
+                  ),
+                ),*/
+                skinHeaderBackButton(context, Colors.white)
+              ],
+            )));
   }
 
-  _body(){
+  _body() {
     return Container(
       child: ListView(
         padding: EdgeInsets.only(top: 0),
@@ -228,42 +283,52 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> with 
     );
   }
 
-  _children(){
+  _children() {
     List<Widget> list = [];
 
-    list.add(SizedBox(height: 20,));
+    list.add(SizedBox(
+      height: 20,
+    ));
 
     list.add(Container(
       margin: EdgeInsets.only(left: 15, right: 15),
-      child: ListWithIcon(imageAsset: "assets/star.png", text: (_this != null) ? _this.restaurant.name : "",                // name
-        imageColor: theme.colorDefaultText),
+      child: ListWithIcon(
+          imageAsset: "assets/star.png",
+          text: (_this != null) ? _this.restaurant.name : "",
+          // name
+          imageColor: theme.colorDefaultText),
     ));
 
     if (_this != null && _this.restaurant.desc.isNotEmpty)
-      list.add(SizedBox(height: 20,));
+      list.add(SizedBox(
+        height: 20,
+      ));
 
     list.add(Container(
       margin: EdgeInsets.only(left: 20, right: 20),
-      child: Text((_this != null) ? _this.restaurant.desc : "", style: theme.text14),                                               // description
+      child: Text((_this != null) ? _this.restaurant.desc : "",
+          style: theme.text14), // description
     ));
 
     // banners for vendor market
     if (_this != null && _this.banner1 != null && _this.banner1.length != 0) {
       list.add(Container(
-          child: IBanner(_this.banner1,
-            width: windowWidth * 0.95,
-            height: windowWidth * appSettings.banner1CardHeight / 100,
-            colorActivy: theme.colorPrimary,
-            colorProgressBar: theme.colorPrimary,
-            radius: appSettings.radius,
-            shadow: appSettings.shadow,
-            style: theme.text16boldWhite,
-            callback: _onBannerClick,
-            seconds: 4,
-          ))
-      );
+          child: IBanner(
+        _this.banner1,
+        width: windowWidth * 0.95,
+        height: windowWidth * appSettings.banner1CardHeight / 100,
+        colorActivy: theme.colorPrimary,
+        colorProgressBar: theme.colorPrimary,
+        radius: appSettings.radius,
+        shadow: appSettings.shadow,
+        style: theme.text16boldWhite,
+        callback: _onBannerClick,
+        seconds: 4,
+      )));
     }
-    list.add(SizedBox(height: 20,));
+    list.add(SizedBox(
+      height: 20,
+    ));
 
     if (_this != null && _this.restaurant != null) {
       if (_this.restaurant.phone.isNotEmpty ||
@@ -272,191 +337,216 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> with 
           margin: EdgeInsets.only(left: 20, right: 20),
           child: ListWithIcon(
               imageAsset: "assets/info.png",
-              text: strings.get(69),      // Information
+              text: strings.get(69), // Information
               imageColor: theme.colorDefaultText),
         ));
 
         list.add(_phone());
         list.add(_phoneMobile());
 
-        list.add(SizedBox(height: 20,));
+        list.add(SizedBox(
+          height: 20,
+        ));
 
-        if (_this.restaurant.openTimeMonday != null)
-          if (_this.restaurant.openTimeMonday.isNotEmpty) {
-            list.add(_workTime());
-            list.add(SizedBox(height: 20,));
-          }
+        if (_this.restaurant.openTimeMonday != null) if (_this
+            .restaurant.openTimeMonday.isNotEmpty) {
+          list.add(_workTime());
+          list.add(SizedBox(
+            height: 20,
+          ));
+        }
       }
     }
 
     list.add(Container(
       margin: EdgeInsets.only(left: 20, right: 20),
-      child: ListWithIcon(imageAsset: "assets/categories.png", text: strings.get(91),             // Products
-        imageColor: theme.colorDefaultText),
+      child: ListWithIcon(
+          imageAsset: "assets/categories.png",
+          text: strings.get(91),
+          // Products
+          imageColor: theme.colorDefaultText),
     ));
 
-    list.add(SizedBox(height: 10,));
+    list.add(SizedBox(
+      height: 10,
+    ));
 
     if (_this != null) {
-      if (_this.ver == '1'){
+      if (_this.ver == '1') {
         if (appSettings.categoryCardCircle == "true")
-          list.add(horizontalCategoriesCircleRestaurant(_this.categories, windowWidth, _onCategoriesClick));
+          list.add(horizontalCategoriesCircleRestaurant(
+              _this.categories, windowWidth, _onCategoriesClick));
         else
-          list.add(horizontalCategoriesRestaurant(_this.categories, windowWidth, _onCategoriesClick));
+          list.add(horizontalCategoriesRestaurant(
+              _this.categories, windowWidth, _onCategoriesClick));
       }
-      if (_this.ver == '2'){
-          horizontalCategoriesCircleRestaurantV2(list, _this.categories, _this.foods, windowWidth, _onCategoriesClick, _currentCategoryId);
+      if (_this.ver == '2') {
+        horizontalCategoriesCircleRestaurantV2(list, _this.categories,
+            _this.foods, windowWidth, _onCategoriesClick, _currentCategoryId);
       }
     }
 
-    list.add(SizedBox(height: 20,));
+    list.add(SizedBox(
+      height: 20,
+    ));
 
     list.add(Container(
       margin: EdgeInsets.only(left: 20, right: 20),
-      child: ListWithIcon(imageAsset: "assets/top.png", text: "${strings.get(91)} - $_categoryName",                // Dishes
-        imageColor: theme.colorDefaultText),
+      child: ListWithIcon(
+          imageAsset: "assets/top.png",
+          text: "${strings.get(91)} - $_categoryName",
+          // Dishes
+          imageColor: theme.colorDefaultText),
     ));
 
     if (appSettings.typeFoods == "type2")
-      dishList2(list, dishDataRestaurant, context, _onDishesClick, windowWidth, _currentCategoryId, _onAddToCartClick);
+      dishList2(list, dishDataRestaurant, context, _onDishesClick, windowWidth,
+          _currentCategoryId, _onAddToCartClick);
     else {
       if (appSettings.oneInLine == "false")
-        dishList(list, dishDataRestaurant, context, _onDishesClick, windowWidth, _onAddToCartClick, _currentCategoryId);
+        dishList(list, dishDataRestaurant, context, _onDishesClick, windowWidth,
+            _onAddToCartClick, _currentCategoryId);
       else
-        dishListOneInLine(list, dishDataRestaurant, _onDishesClick, windowWidth, _onAddToCartClick, _currentCategoryId);
+        dishListOneInLine(list, dishDataRestaurant, _onDishesClick, windowWidth,
+            _onAddToCartClick, _currentCategoryId);
     }
 
-    list.add(SizedBox(height: 20,));
+    list.add(SizedBox(
+      height: 20,
+    ));
     marketReviews(list, _this, windowWidth);
-    list.add(SizedBox(height: 20,));
+    list.add(SizedBox(
+      height: 20,
+    ));
 
     if (account.isAuth())
       list.add(Container(
-        alignment: Alignment.center,
-          margin: EdgeInsets.only(left: windowWidth*0.1, right: windowWidth*0.1),
-          child: IButton3(text: strings.get(138),                           // Add Review
+          alignment: Alignment.center,
+          margin: EdgeInsets.only(
+              left: windowWidth * 0.1, right: windowWidth * 0.1),
+          child: IButton3(
+            text: strings.get(138), // Add Review
             color: theme.colorPrimary, pressButton: _pressAddReview,
             textStyle: theme.text14boldWhite,
-          )
-      ));
+          )));
 
-    list.add(SizedBox(height: 200,));
+    list.add(SizedBox(
+      height: 200,
+    ));
 
     return list;
   }
 
   DishesData _addToBasketItem;
 
-  _onAddToCartClick(String id){
+  _onAddToCartClick(String id) {
     dprint("add to cart click id=$id");
     _addToBasketItem = loadFood(id);
     _addToBasketItem.count = 1;
-    setState(() {
-    });
+    setState(() {});
   }
 
-  _imageBuild(){
-      return Stack(
-          children: [
-          if (_imageRestaurant != null && _imageRestaurant.isNotEmpty)
-          Container(
-          child: Hero(
-            tag: idHeroes,
-            child: Container(
-                child: CachedNetworkImage(
-                  placeholder: (context, url) =>
-                      CircularProgressIndicator(),
-                  imageUrl: _imageRestaurant,
-                  imageBuilder: (context, imageProvider) => Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: imageProvider,
-                        fit: BoxFit.cover,
+  _imageBuild() {
+    return Stack(children: [
+      if (_imageRestaurant != null && _imageRestaurant.isNotEmpty)
+        Container(
+            child: Hero(
+                tag: idHeroes,
+                child: Container(
+                  child: CachedNetworkImage(
+                    placeholder: (context, url) => CircularProgressIndicator(),
+                    imageUrl: _imageRestaurant,
+                    imageBuilder: (context, imageProvider) => Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: imageProvider,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
+                    errorWidget: (context, url, error) => new Icon(Icons.error),
                   ),
-                  errorWidget: (context,url,error) => new Icon(Icons.error),
-                ),
-              )
+                ))),
+      if (_wait)
+        (Container(
+          color: Color(0x80000000),
+          width: windowWidth,
+          height: windowHeight,
+        )),
+    ]);
+  }
+
+  _phone() {
+    if (_this == null) return Container();
+    if (_this.restaurant.phone.isEmpty) return Container();
+
+    return Container(
+      margin: EdgeInsets.only(left: 20, right: 20),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+              child: Text("${strings.get(106)}: ${_this.restaurant.phone}",
+                  style: theme.text14) //  "Phone",
+              ),
+          IInkWell(
+            child: IBoxCircle(
+              child: _icon(),
+              color: Colors.white,
+            ),
+            onPress: _callMe,
           )
-        ),
-
-        if (_wait)(
-            Container(
-              color: Color(0x80000000),
-              width: windowWidth,
-              height: windowHeight,
-            )),
-
-          ]);
+        ],
+      ),
+    );
   }
 
-  _phone(){
-    if (_this == null)
-      return Container();
-    if (_this.restaurant.phone.isEmpty)
-      return Container();
+  _phoneMobile() {
+    if (_this == null) return Container();
+    if (_this.restaurant.mobilephone.isEmpty) return Container();
 
     return Container(
       margin: EdgeInsets.only(left: 20, right: 20),
       child: Row(
         children: <Widget>[
           Expanded(
-              child: Text("${strings.get(106)}: ${_this.restaurant.phone}", style: theme.text14)  //  "Phone",
-          ),
-          IInkWell(child: IBoxCircle(child: _icon(), color: Colors.white,), onPress: _callMe,)
+              child: Text("${strings.get(81)}: ${_this.restaurant.mobilephone}",
+                  style: theme.text14) // "Mobile Phone",
+              ),
+          IInkWell(
+            child: IBoxCircle(child: _icon()),
+            onPress: _callMeMobile,
+          )
         ],
       ),
     );
   }
 
-  _phoneMobile(){
-    if (_this == null)
-      return Container();
-    if (_this.restaurant.mobilephone.isEmpty)
-      return Container();
-
-    return Container(
-      margin: EdgeInsets.only(left: 20, right: 20),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-              child: Text("${strings.get(81)}: ${_this.restaurant.mobilephone}", style: theme.text14) // "Mobile Phone",
-          ),
-          IInkWell(child: IBoxCircle(child: _icon()), onPress: _callMeMobile,)
-        ],
-      ),
-    );
-  }
-
-  _icon(){
+  _icon() {
     String icon = "assets/call.png";
     return Container(
-      padding: EdgeInsets.all(5),
+        padding: EdgeInsets.all(5),
         child: UnconstrainedBox(
-        child: Container(
-            height: 30,
-            width: 30,
-            child: Image.asset(icon,
-              fit: BoxFit.contain, color: Colors.black,
-            )
-        ))
-    );
+            child: Container(
+                height: 30,
+                width: 30,
+                child: Image.asset(
+                  icon,
+                  fit: BoxFit.contain,
+                  color: Colors.black,
+                ))));
   }
 
   _callMe() async {
     var uri = 'tel:${_this.restaurant.phone}';
-    if (await canLaunch(uri))
-      await launch(uri);
+    if (await canLaunch(uri)) await launch(uri);
   }
 
   _callMeMobile() async {
     var uri = 'tel:${_this.restaurant.mobilephone}';
-    if (await canLaunch(uri))
-      await launch(uri);
+    if (await canLaunch(uri)) await launch(uri);
   }
 
-  _ratingDialogBuilding(){
+  _ratingDialogBuilding() {
     return Directionality(
         textDirection: strings.direction,
         child: Container(
@@ -467,63 +557,85 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> with 
             children: <Widget>[
               Container(
                   alignment: Alignment.center,
-                  child: Text(strings.get(142), textAlign: TextAlign.center, style: theme.text18boldPrimary,) // "Enjoying Restaurant?",
-              ), // "Reason to Reject",
-              SizedBox(height: 10,),
+                  child: Text(
+                    strings.get(142),
+                    textAlign: TextAlign.center,
+                    style: theme.text18boldPrimary,
+                  ) // "Enjoying Restaurant?",
+                  ),
+              // "Reason to Reject",
+              SizedBox(
+                height: 10,
+              ),
               Container(
                   alignment: Alignment.center,
-                  child: Text(strings.get(143), textAlign: TextAlign.center, style: theme.text16,) // "How would you rate this restaurant?",
-              ), // "Reason to Reject",
-              SizedBox(height: 20,),
+                  child: Text(
+                    strings.get(143),
+                    textAlign: TextAlign.center,
+                    style: theme.text16,
+                  ) // "How would you rate this restaurant?",
+                  ),
+              // "Reason to Reject",
+              SizedBox(
+                height: 20,
+              ),
               Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: _starsWidget(),
                 ),
               ),
-              SizedBox(height: 20,),
-              Text("${strings.get(141)}:", style: theme.text12bold,),  // ""Enter your review",",
-              _edit(editControllerReview, strings.get(141), false),                //  "Enter your review",
-              SizedBox(height: 30,),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                "${strings.get(141)}:",
+                style: theme.text12bold,
+              ),
+              // ""Enter your review",",
+              _edit(editControllerReview, strings.get(141), false),
+              //  "Enter your review",
+              SizedBox(
+                height: 30,
+              ),
               Container(
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
                   Container(
-                  width: windowWidth/2-45,
-                    child: IButton3(
+                      width: windowWidth / 2 - 45,
+                      child: IButton3(
                           color: theme.colorPrimary,
-                          text: strings.get(127),                  // Ok
+                          text: strings.get(127), // Ok
                           textStyle: theme.text14boldWhite,
-                          pressButton: (){
+                          pressButton: () {
                             setState(() {
                               mainCurrentDialogShow = 0;
                             });
                             _callbackDone();
-                          }
-                      )),
-                      SizedBox(width: 10,),
+                          })),
+                  SizedBox(
+                    width: 10,
+                  ),
                   Container(
-                    width: windowWidth/2-45,
-                    child: IButton3(
+                      width: windowWidth / 2 - 45,
+                      child: IButton3(
                           color: theme.colorPrimary,
-                          text: strings.get(155),              // Cancel
+                          text: strings.get(155), // Cancel
                           textStyle: theme.text14boldWhite,
-                          pressButton: (){
+                          pressButton: () {
                             setState(() {
                               mainCurrentDialogShow = 0;
                             });
-                          }
-                      )),
-                    ],
-                  )),
-
+                          })),
+                ],
+              )),
             ],
           ),
         ));
   }
 
-  _openRatingDialog(){
+  _openRatingDialog() {
     mainCurrentDialogBody = _ratingDialogBuilding();
 
     setState(() {
@@ -531,52 +643,63 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> with 
     });
   }
 
-  List<Widget> _starsWidget(){
+  List<Widget> _starsWidget() {
     List<Widget> list = [];
 
-    if (_stars >= 1) list.add(_good(1)); else list.add(_bad(1));
-    if (_stars >= 2) list.add(_good(2)); else list.add(_bad(2));
-    if (_stars >= 3) list.add(_good(3)); else list.add(_bad(3));
-    if (_stars >= 4) list.add(_good(4)); else list.add(_bad(4));
-    if (_stars >= 5) list.add(_good(5)); else list.add(_bad(5));
+    if (_stars >= 1)
+      list.add(_good(1));
+    else
+      list.add(_bad(1));
+    if (_stars >= 2)
+      list.add(_good(2));
+    else
+      list.add(_bad(2));
+    if (_stars >= 3)
+      list.add(_good(3));
+    else
+      list.add(_bad(3));
+    if (_stars >= 4)
+      list.add(_good(4));
+    else
+      list.add(_bad(4));
+    if (_stars >= 5)
+      list.add(_good(5));
+    else
+      list.add(_bad(5));
 
     return list;
   }
 
-  _good(int pos){
+  _good(int pos) {
     return GestureDetector(
         behavior: HitTestBehavior.translucent,
         onTap: () {
           _stars = pos;
           mainCurrentDialogBody = _ratingDialogBuilding();
-          setState(() {
-          });
+          setState(() {});
         },
         child: Icon(Icons.star, color: Colors.orangeAccent, size: 40));
   }
 
-  _bad(int pos){
+  _bad(int pos) {
     return GestureDetector(
         behavior: HitTestBehavior.translucent,
         onTap: () {
           _stars = pos;
           mainCurrentDialogBody = _ratingDialogBuilding();
-          setState(() {
-          });
+          setState(() {});
         },
-        child: Icon(Icons.star_border, color: Colors.orangeAccent, size: 40)
-    );
+        child: Icon(Icons.star_border, color: Colors.orangeAccent, size: 40));
   }
 
-  _edit(TextEditingController _controller, String _hint, bool _obscure){
+  _edit(TextEditingController _controller, String _hint, bool _obscure) {
     return Container(
         height: 40,
         child: Directionality(
           textDirection: strings.direction,
           child: TextFormField(
             controller: _controller,
-            onChanged: (String value) async {
-            },
+            onChanged: (String value) async {},
             cursorColor: theme.colorDefaultText,
             style: theme.text14,
             cursorWidth: 1,
@@ -593,8 +716,7 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> with 
                   borderSide: BorderSide(color: Colors.grey),
                 ),
                 hintText: _hint,
-                hintStyle: theme.text14
-            ),
+                hintStyle: theme.text14),
           ),
         ));
   }
@@ -602,18 +724,22 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> with 
   openDialog(String _text) {
     mainCurrentDialogBody = Column(
       children: [
-        Text(_text, style: theme.text14,),
-        SizedBox(height: 40,),
+        Text(
+          _text,
+          style: theme.text14,
+        ),
+        SizedBox(
+          height: 40,
+        ),
         IButton3(
             color: theme.colorPrimary,
-            text: strings.get(155),              // Cancel
+            text: strings.get(155), // Cancel
             textStyle: theme.text14boldWhite,
-            pressButton: (){
+            pressButton: () {
               setState(() {
                 mainCurrentDialogShow = 0;
               });
-            }
-        ),
+            }),
       ],
     );
 
@@ -622,24 +748,30 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> with 
     });
   }
 
-  _workTime(){
+  _workTime() {
     return Container(
         margin: EdgeInsets.only(left: 20, right: 20),
         child: Column(
           children: <Widget>[
-            _oneitem(strings.get(70), "${_this.restaurant.openTimeMonday} - ${_this.restaurant.closeTimeMonday}"), // "Monday",
-            _oneitem(strings.get(71), "${_this.restaurant.openTimeTuesday} - ${_this.restaurant.closeTimeTuesday}"), // "Tuesday",
-            _oneitem(strings.get(72), "${_this.restaurant.openTimeWednesday} - ${_this.restaurant.closeTimeWednesday}"), // "Wednesday",
-            _oneitem(strings.get(73), "${_this.restaurant.openTimeThursday} - ${_this.restaurant.closeTimeThursday}"), // "Thursday",
-            _oneitem(strings.get(74), "${_this.restaurant.openTimeFriday} - ${_this.restaurant.closeTimeFriday}"), // "Friday",
-            _oneitem(strings.get(75), "${_this.restaurant.openTimeSaturday} - ${_this.restaurant.closeTimeSaturday}"), // Saturday
-            _oneitem(strings.get(76), "${_this.restaurant.openTimeSunday} - ${_this.restaurant.closeTimeSunday}"), // Sunday
+            _oneitem(strings.get(70),
+                "${_this.restaurant.openTimeMonday} - ${_this.restaurant.closeTimeMonday}"), // "Monday",
+            _oneitem(strings.get(71),
+                "${_this.restaurant.openTimeTuesday} - ${_this.restaurant.closeTimeTuesday}"), // "Tuesday",
+            _oneitem(strings.get(72),
+                "${_this.restaurant.openTimeWednesday} - ${_this.restaurant.closeTimeWednesday}"), // "Wednesday",
+            _oneitem(strings.get(73),
+                "${_this.restaurant.openTimeThursday} - ${_this.restaurant.closeTimeThursday}"), // "Thursday",
+            _oneitem(strings.get(74),
+                "${_this.restaurant.openTimeFriday} - ${_this.restaurant.closeTimeFriday}"), // "Friday",
+            _oneitem(strings.get(75),
+                "${_this.restaurant.openTimeSaturday} - ${_this.restaurant.closeTimeSaturday}"), // Saturday
+            _oneitem(strings.get(76),
+                "${_this.restaurant.openTimeSunday} - ${_this.restaurant.closeTimeSunday}"), // Sunday
           ],
-        )
-    );
+        ));
   }
 
-  _oneitem(String day, String time){
+  _oneitem(String day, String time) {
     return Container(
         margin: EdgeInsets.only(bottom: 5),
         child: Row(
@@ -651,5 +783,41 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> with 
         ));
   }
 
-}
+  Future<void> _share() async {
+    dprint("print your msg here");
+    Directory imgPath = await getTemporaryDirectory();
+    await imgPath.create(recursive: true);
+    var response =
+        await http.get(Uri.tryParse(_this.restaurant.image.toString()));
+    File file = new File("/storage/emulated/0/new_app_logo.png");
+    //file = await new File('${imgPath.path}/{$_this.restaurant.image}').create();
+    file.writeAsBytes(response.bodyBytes);
+    await Share.shareFiles([file.path],
+        text:
+            "${_this.restaurant.name} | Smartshopp in India \n Website: https://smartshopp.in \n Play Store: https://play.google.com/store/apps/details?id=com.shopping.smartshop");
+    if (file.exists() != null) {
+      file.delete();
+    }
+    //=========================New Code==============================================
+    /* dprint(_this.restaurant.image);
+      var response = await http.get(Uri.tryParse(_this.restaurant.image.toString()));
+      File file = new File("/storage/emulated/0/new_app_logo.png");
+      file.writeAsBytesSync(response.bodyBytes);
+      await Share.shareFiles(["/storage/emulated/0/new_app_logo.png"], text: "${_this.restaurant.name} | Smartshopp in India \n Website: https://smartshopp.in \n Play Store: https://play.google.com/store/apps/details?id=com.shopping.smartshop");
+      print("Path : " + file.path);
+      if (await file.exists()) {
+        await file.delete();
+        print("Deleted File");
+      }*/
 
+    //======================Old code=================================================
+    /* Directory imgPath = await getTemporaryDirectory();
+      await imgPath.create(recursive: true);
+      final file = await new File('${imgPath.path}/gridQr$randomNum.png').create();
+      await file.writeAsBytes(dataByte);
+      await Share.shareFiles([file.path]);
+      if(file.exists() != null) {
+        file.delete();
+      }*/
+  }
+}

@@ -341,7 +341,6 @@ class AppThemeData{
   }
 
   setAppSettings(){
-
     if (appSettings.mainColor != null){
       colorPrimary = appSettings.mainColor;
       pref.set(Pref.uiMainColor, appSettings.mainColor.value.toRadixString(16));

@@ -3,16 +3,16 @@ import 'dart:async';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/config/api.dart';
-import 'package:shopping/model/homescreenModel.dart';
 import 'package:shopping/ui/login/login.dart';
 import 'package:shopping/ui/start/splash.dart';
+import 'config/api.dart';
 import 'config/lang.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'config/theme.dart';
 import 'model/account.dart';
 import 'model/dprint.dart';
+import 'model/homescreenModel.dart';
 import 'model/pref.dart';
 import 'route.dart';
 
@@ -132,7 +132,7 @@ class AppFoodDelivery  extends StatelessWidget {
     dprint(theme.appTypePre);
 
     return MaterialApp(
-      title: strings.get(10),  // "Food Delivery Flutter App UI Kit",
+      title: strings.get(10),  // "Food smartshopp customer Flutter App UI Kit",
       debugShowCheckedModeBanner: false,
       theme: _theme,
       initialRoute: '/splash',
