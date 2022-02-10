@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "1079991402869",
-    "project_id": "smartshopp-ecd27",
-    "storage_bucket": "smartshopp-ecd27.appspot.com"
+    "project_number": "804631197522",
+    "project_id": "smartshoppuser",
+    "storage_bucket": "smartshoppuser.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1079991402869:android:5938b3238cf026bebdd33c",
+        "mobilesdk_app_id": "1:804631197522:android:de8326d6c2492d0da02c8b",
         "android_client_info": {
           "package_name": "com.shopping.smartshop"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1079991402869-4ns9ag1ueoin9a7kushjc05a8eemqr4s.apps.googleusercontent.com",
+          "client_id": "804631197522-8b3emkoemh67s2i1tp0o8tipa9ejfga1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.shopping.smartshop",
-            "certificate_hash": "8d738de658b726caecfa4795601ee0df7f300d2c"
+            "certificate_hash": "6766d86a4ac005315387b28d7c64372d5fc392d8"
           }
         },
         {
-          "client_id": "1079991402869-3g8jbaajvo0j009efds5r4ef8msbiov5.apps.googleusercontent.com",
+          "client_id": "804631197522-uv5ounpofrf0vj8nbfjbrau15v70p4ij.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAqg-auLaKBDbV5AyJwTe0InGUrKargAFc"
+          "current_key": "AIzaSyCzzHgxUfPIpBZWwO6QhgniJugVIhHo1FU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1079991402869-3g8jbaajvo0j009efds5r4ef8msbiov5.apps.googleusercontent.com",
+              "client_id": "804631197522-uv5ounpofrf0vj8nbfjbrau15v70p4ij.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
